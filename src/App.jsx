@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// App.jsx
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Suspense, lazy } from "react";
+import "./assets/tailwind.css";
+
+const Loading = () => <div className="text-center mt-10">Loading...</div>;
+
+// Layout
+const StaffLayout = lazy(() => import("./layouts/StaffLayout"));
+
+// Pages
+const Login = lazy(() => import("./pages/auth/Login"));
+const Dashboard = lazy(() => import("./pages/StaffGudang/Dashboard"));
+const BarangMasuk = lazy(() => import("./pages/StaffGudang/BarangMasuk"));
+const BarangKeluar = lazy(() => import("./pages/StaffGudang/BarangKeluar"));
+const RiwayatTransaksi = lazy(() => import("./pages/StaffGudang/RiwayatTransaksi"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to fgfg HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Router>
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+
+          {/* Nest all /staffgudang routes */}
+          <Route path="/staffgudang" element={<StaffLayout />}>
+            <Route index element={<Dashboard />} /> {/* Ini untuk /staffgudang */}
+            <Route path="masuk" element={<BarangMasuk />} />
+            <Route path="keluar" element={<BarangKeluar />} />
+            <Route path="riwayat" element={<RiwayatTransaksi />} />
+          </Route>
+
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
+    </Router>
+  );
 }
 
-export default App
+export default App;
