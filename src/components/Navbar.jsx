@@ -9,8 +9,8 @@ export default function Navbar() {
 
   return (
     <header className="bg-gradient-to-r from-purple-800 to-blue-800 text-white px-6 py-3 shadow-md flex items-center justify-between w-full z-50">
-      <h1 className="text-lg font-black tracking-wide">📦 Sistem Inventaris</h1>
-      <nav className="flex items-center gap-6 relative">
+  <span className="text-[10px] font-medium tracking-wide">Sistem Inventaris</span>
+  <nav className="flex items-center gap-6 relative">
         
         {/* Settings Dropdown */}
         <div className="relative">
@@ -31,30 +31,6 @@ export default function Navbar() {
               </Link>
               <Link to="/editprofile" className="block px-4 py-2 hover:bg-gray-100 text-sm">
                 <FaUserCircle className="inline mr-2" /> Edit Profil
-              </Link>
-            </div>
-          )}
-        </div>
-
-        {/* Account Dropdown */}
-        <div className="relative">
-          <button
-            onClick={() => {
-              setShowAccountMenu(!showAccountMenu);
-              setShowSettingsMenu(false);
-              setShowLoginMenu(false);
-            }}
-            className="flex items-center gap-2 hover:text-yellow-300 transition"
-          >
-            <FaUserCircle /> <span>Akun</span>
-          </button>
-          {showAccountMenu && (
-            <div className="absolute right-0 mt-2 w-44 bg-white text-gray-800 rounded shadow z-50">
-              <Link to="/profile" className="block px-4 py-2 hover:bg-gray-100 text-sm">
-                <FaUserCircle className="inline mr-2" /> Profil Saya
-              </Link>
-              <Link to="/logout" className="block px-4 py-2 hover:bg-gray-100 text-sm">
-                <FaSignOutAlt className="inline mr-2" /> Keluar
               </Link>
             </div>
           )}
@@ -82,6 +58,30 @@ export default function Navbar() {
               </Link>
               <Link to="/forgot" className="block px-4 py-2 hover:bg-gray-100 text-sm">
                 <FaQuestionCircle className="inline mr-2" /> Lupa Password
+              </Link>
+            </div>
+          )}
+        </div>
+
+        {/* Account Dropdown */}
+        <div className="relative">
+          <button
+            onClick={() => {
+              setShowAccountMenu(!showAccountMenu);
+              setShowSettingsMenu(false);
+              setShowLoginMenu(false);
+            }}
+            className="flex items-center gap-2 hover:text-yellow-300 transition"
+          >
+            <FaUserCircle /> <span>Akun</span>
+          </button>
+          {showAccountMenu && (
+            <div className="absolute right-0 mt-2 w-44 bg-white text-gray-800 rounded shadow z-50">
+              <Link to="/profile" className="block px-4 py-2 hover:bg-gray-100 text-sm">
+                <FaUserCircle className="inline mr-2" /> Profil Saya
+              </Link>
+              <Link to="/logout" className="block px-4 py-2 hover:bg-gray-100 text-sm">
+                <FaSignOutAlt className="inline mr-2" /> Keluar
               </Link>
             </div>
           )}

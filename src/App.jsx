@@ -17,6 +17,13 @@ const BarangKeluar = lazy(() => import("./pages/StaffGudang/BarangKeluar"));
 const RiwayatTransaksi = lazy(() =>
   import("./pages/StaffGudang/RiwayatTransaksi")
 );
+const Aset = lazy(() => import("./pages/StaffGudang/Aset"));
+const Supplier = lazy(() => import("./pages/StaffGudang/Supplier"));
+const Customer = lazy(() => import("./pages/StaffGudang/Customer"));
+const LaporanStok = lazy(() => import("./pages/StaffGudang/LaporanStok"));
+const LaporanMasuk = lazy(() => import("./pages/StaffGudang/LaporanMasuk"));
+const LaporanKeluar = lazy(() => import("./pages/StaffGudang/LaporanKeluar"));
+const Pengguna = lazy(() => import("./pages/StaffGudang/Pengguna"));
 
 // Auth Pages
 const Profile = lazy(() => import("./pages/auth/Profile"));
@@ -25,6 +32,7 @@ const Settings = lazy(() => import("./pages/auth/Settings"));
 const Logout = lazy(() => import("./pages/auth/Logout"));
 const Register = lazy(() => import("./pages/auth/Register"));
 const ForgotPassword = lazy(() => import("./pages/auth/ForgotPassword"));
+const Notifikasi = lazy(() => import("./pages/auth/Notifikasi"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const Loading = () => <div className="text-center mt-10">Loading...</div>;
@@ -53,12 +61,20 @@ function AppRoutes() {
           <Route path="masuk" element={<BarangMasuk />} />
           <Route path="keluar" element={<BarangKeluar />} />
           <Route path="riwayat" element={<RiwayatTransaksi />} />
+          <Route path="aset" element={<Aset />} />
+          <Route path="supplier" element={<Supplier />} />
+          <Route path="customer" element={<Customer />} />
+          <Route path="laporan/stok" element={<LaporanStok />} />
+          <Route path="laporan/masuk" element={<LaporanMasuk />} />
+          <Route path="laporan/keluar" element={<LaporanKeluar />} />
+          <Route path="pengguna" element={<Pengguna />} />
         </Route>
         {/* Halaman akun dan pengaturan */}
         <Route path="/profile" element={<Profile />} />
         <Route path="/editprofile" element={<EditProfile />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/logout" element={<Logout />} />
+        <Route path="/notifikasi" element={<Notifikasi/>} />
         {/* Tambahan halaman register dan forgot password */}
         <Route path="/register" element={<Register />} />
         <Route path="/forgot" element={<ForgotPassword />} />
