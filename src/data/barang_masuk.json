@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "nama": "Kertas A4",
+    "jumlah": 100,
+    "supplier": "Toko ATK Jaya",
+    "created_at": "2025-06-15T08:00:00Z"
+  },
+  {
+    "id": 2,
+    "nama": "Pulpen",
+    "jumlah": 50,
+    "supplier": "Toko Pena Cemerlang",
+    "created_at": "2025-06-14T14:30:00Z"
+  }
+]

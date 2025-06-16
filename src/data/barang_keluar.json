@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "nama": "Tinta Printer",
+    "jumlah": 5,
+    "tujuan": "Ruang TU",
+    "created_at": "2025-06-15T09:15:00Z"
+  },
+  {
+    "id": 2,
+    "nama": "Kertas A4",
+    "jumlah": 20,
+    "tujuan": "Ruang Guru",
+    "created_at": "2025-06-14T11:45:00Z"
+  }
+]
