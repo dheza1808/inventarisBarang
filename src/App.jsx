@@ -55,7 +55,7 @@ function AppRoutes() {
           <Route path="riwayat" element={<RiwayatTransaksi />} />
         </Route>
         {/* Halaman akun dan pengaturan */}
-        <Route path="/settings/profile" element={<Profile />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/editprofile" element={<EditProfile />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/logout" element={<Logout />} />

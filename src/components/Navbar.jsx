@@ -29,7 +29,7 @@ export default function Navbar() {
               <Link to="/settings" className="block px-4 py-2 hover:bg-gray-100 text-sm">
                 <FaCog className="inline mr-2" /> Pengaturan Umum
               </Link>
-              <Link to="/settings/profile" className="block px-4 py-2 hover:bg-gray-100 text-sm">
+              <Link to="/editprofile" className="block px-4 py-2 hover:bg-gray-100 text-sm">
                 <FaUserCircle className="inline mr-2" /> Edit Profil
               </Link>
             </div>
