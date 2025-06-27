@@ -17,8 +17,7 @@ export default function Login() {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-r from-purple-700 to-indigo-800 bg-opacity-90 backdrop-blur-sm">
       <div className="bg-white w-full max-w-md p-8 rounded-xl shadow-2xl">
         <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
-          Selamat Datang 👋
-        </h2>
+          Selamat Datang </h2>
 
         <form onSubmit={handleLogin} className="space-y-5">
           <div>
