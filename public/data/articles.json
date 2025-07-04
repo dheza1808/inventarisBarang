@@ -1,0 +1,35 @@
+
+[
+  {
+    "id": 1,
+    "judul": "Laptop Kantor Hilang Saat Lembur Proyek",
+    "tanggal": "2025-06-01",
+    "penulis": "Admin",
+    "gambar": "https://radarlombok.co.id/wp-content/uploads/2017/04/Ilustrasi-Laptop-Dicuri.jpg",
+    "konten": "Insiden kehilangan salah satu laptop kantor terjadi pada malam lembur proyek pengadaan sistem baru. Laptop tersebut diketahui terakhir digunakan oleh staf IT, namun tidak ditemukan keesokan harinya. Perusahaan sedang melakukan investigasi dan akan memperketat sistem peminjaman barang di masa mendatang."
+  },
+  {
+    "id": 2,
+    "judul": "Penguatan SOP Peminjaman Barang Kantor",
+    "tanggal": "2025-06-05",
+    "penulis": "Tim Inventaris",
+    "gambar": "https://www.shutterstock.com/image-vector/inventory-control-concept-warehouse-management-260nw-2579650815.jpg",
+    "konten": "Manajemen PT Maju Bersama mengumumkan bahwa SOP peminjaman barang resmi diperbarui mulai Juni 2025. Setiap pegawai diwajibkan mengisi form digital saat meminjam perangkat, termasuk tanggal peminjaman dan pengembalian. Hal ini untuk meningkatkan transparansi dan mengurangi risiko kehilangan aset perusahaan."
+  },
+  {
+    "id": 3,
+    "judul": "Penemuan Barang Lama di Gudang Lantai 3",
+    "tanggal": "2025-06-08",
+    "penulis": "Staff Gudang",
+    "gambar": "https://www.masuksini.com/imageprop/large/GUDANG--KANTOR-3-in-1-DIJUAL--DISEWAKAN-Daerah-Daan-Mogot-1703041327132.jpg",
+    "konten": "Tim gudang menemukan beberapa perangkat lama seperti monitor tabung dan printer dot-matrix yang belum pernah tercatat di sistem. Temuan ini akan segera diinventarisasi ulang dan ditentukan statusnya, apakah akan dimusnahkan atau disumbangkan. Penemuan ini membuka peluang untuk audit barang lebih rutin ke depannya."
+  },
+  {
+    "id": 4,
+    "judul": "Kasus Charger Hilang, Perusahaan Evaluasi Sistem Penyimpanan",
+    "tanggal": "2025-06-12",
+    "penulis": "Keamanan Kantor",
+    "gambar": "/images/article4.jpg",
+    "konten": "Kehilangan charger laptop yang terjadi dua kali dalam sebulan membuat perusahaan mengevaluasi ulang tempat penyimpanan barang. Salah satu usulan adalah membuat loker penyimpanan dengan akses terkunci untuk barang-barang kecil. Diharapkan sistem ini bisa diluncurkan bulan depan."
+  }
+]

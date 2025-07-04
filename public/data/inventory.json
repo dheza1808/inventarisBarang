@@ -1,0 +1,412 @@
+[
+  {
+    "id": 1,
+    "nama": "Laptop Lenovo ThinkPad",
+    "kategori": "Elektronik",
+    "kondisi": "Baik",
+    "lokasi": "Ruang IT",
+    "jumlah": 5,
+    "image": "https://p3-ofp.static.pub//fes/cms/2024/04/01/osqn4brfn79vgwdhq64mis2ddur9a6681695.png",
+    "deskripsi": "Laptop Lenovo ThinkPad Core i5, RAM 8GB"
+  },
+  {
+    "id": 2,
+    "nama": "Proyektor Epson X123",
+    "kategori": "Elektronik",
+    "kondisi": "Baik",
+    "lokasi": "Ruang Meeting",
+    "jumlah": 2,
+    "image": "https://myhartono.com/images/detailed/399/EB-X600-1_copy.WEBP",
+    "deskripsi": "Proyektor untuk keperluan presentasi"
+  },
+  {
+    "id": 3,
+    "nama": "Kamera DSLR Canon EOS",
+    "kategori": "Elektronik",
+    "kondisi": "Rusak ringan",
+    "lokasi": "Ruang Dokumentasi",
+    "jumlah": 1,
+    "image": "https://id.canon/media/image/2020/08/14/4416baf9586149c982c6d61713353065_19_EOS%2B90D_BK_FrontSlantDown_18-55ISSTM.png",
+    "deskripsi": "Kamera DSLR Canon EOS 24MP untuk dokumentasi acara"
+  },
+  {
+    "id": 4,
+    "nama": "Meja Kerja Kayu",
+    "kategori": "Furnitur",
+    "kondisi": "Baik",
+    "lokasi": "Ruang Administrasi",
+    "jumlah": 10,
+    "image": "https://indosanjaya.com/image/cache/catalog/EXPO/Series%20MP/mp-180-550x550.jpg",
+    "deskripsi": "Meja kayu ukuran 120x60 cm"
+  },
+  {
+    "id": 5,
+    "nama": "Kursi Kantor Hidrolik",
+    "kategori": "Furnitur",
+    "kondisi": "Baik",
+    "lokasi": "Ruang Administrasi",
+    "jumlah": 12,
+    "image": "https://furniturejogja.com/wp-content/uploads/2022/06/0fdb75084b1134c5ce0c648e7fa840bf.jpeg",
+    "deskripsi": "Kursi kantor hidrolik ergonomis"
+  },
+  {
+    "id": 6,
+    "nama": "Printer Epson L3110",
+    "kategori": "Elektronik",
+    "kondisi": "Baik",
+    "lokasi": "Ruang Admin",
+    "jumlah": 3,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3ibk9kmj7nTvHgfBPwJF2xQzmjGT5uuzWiQ&s",
+    "deskripsi": "Printer Epson all-in-one print/scan/copy"
+  },
+  {
+    "id": 7,
+    "nama": "Scanner Fujitsu",
+    "kategori": "Elektronik",
+    "kondisi": "Baik",
+    "lokasi": "Ruang Arsip",
+    "jumlah": 1,
+    "image": "https://www.softcom.co.id/wp-content/uploads/2020/06/f7240a.jpg",
+    "deskripsi": "Scanner dokumen cepat dan efisien"
+  },
+  {
+    "id": 8,
+    "nama": "Lemari Arsip Besi",
+    "kategori": "Furnitur",
+    "kondisi": "Baik",
+    "lokasi": "Ruang Arsip",
+    "jumlah": 4,
+    "image": "https://static.wixstatic.com/media/73c676_e4477fbb830646ea87fa71ec19f91fc8~mv2.jpg/v1/fill/w_480,h_480,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/73c676_e4477fbb830646ea87fa71ec19f91fc8~mv2.jpg",
+    "deskripsi": "Lemari penyimpanan arsip berbahan besi"
+  },
+  {
+    "id": 9,
+    "nama": "Kamera Canon EOS 200D",
+    "kategori": "Elektronik",
+    "kondisi": "Baik",
+    "lokasi": "Studio",
+    "jumlah": 1,
+    "image": "https://id.canon/media/image/2019/04/09/cd7198fe980a4ed48be85ac376aec5d1_EOS+200D+MKII+BK+Front+Slant.png",
+    "deskripsi": "Kamera DSLR untuk dokumentasi"
+  },
+  {
+    "id": 10,
+    "nama": "Mikrofon Condenser",
+    "kategori": "Elektronik",
+    "kondisi": "Baik",
+    "lokasi": "Studio",
+    "jumlah": 2,
+    "image": "https://down-id.img.susercontent.com/file/da33066c1c53d6ea1910a0d044014909",
+    "deskripsi": "Mikrofon untuk keperluan rekaman"
+  },
+  {
+    "id": 11,
+    "nama": "Notebook Spiral",
+    "kategori": "Alat Tulis",
+    "kondisi": "Baru",
+    "lokasi": "Gudang",
+    "jumlah": 100,
+    "image": "https://img.lazcdn.com/g/ff/kf/S18fd5c9edf0b40328eb608e8f03f6b5bS.jpg_720x720q80.jpg",
+    "deskripsi": "Notebook spiral untuk kebutuhan mencatat"
+  },
+  {
+    "id": 12,
+    "nama": "Pulpen Gel Hitam",
+    "kategori": "Alat Tulis",
+    "kondisi": "Baru",
+    "lokasi": "Gudang",
+    "jumlah": 200,
+    "image": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//catalog-image/104/MTA-140891872/vanco_pulpen_gel_-_gel_pen_ink_thick_stroke_1-0_mm_tinta_hitam_isi_1_full05_kfmvu6qy.jpg",
+    "deskripsi": "Pulpen tinta gel warna hitam"
+  },
+  {
+    "id": 13,
+    "nama": "Kipas Angin Meja",
+    "kategori": "Elektronik",
+    "kondisi": "Baik",
+    "lokasi": "Ruang Karyawan",
+    "jumlah": 8,
+    "image": "https://cdn.ruparupa.io/fit-in/400x400/filters:format(webp)/filters:quality(90)/ruparupa-com/image/upload/Products/10549939_1.jpg",
+    "deskripsi": "Kipas meja ukuran sedang"
+  },
+  {
+    "id": 14,
+    "nama": "Speaker Bluetooth JBL",
+    "kategori": "Elektronik",
+    "kondisi": "Baik",
+    "lokasi": "Ruang Resepsionis",
+    "jumlah": 1,
+    "image": "https://res.cloudinary.com/pusatroxymas/image/upload/w_1024/v1685773270/prod_mproducts/trx390588_/2023/dsw_230603_924d6d00ca1bee912d96483b0a732de9.jpg_720x720q80.jpg.jpg",
+    "deskripsi": "Speaker portabel untuk musik"
+  },
+  {
+    "id": 15,
+    "nama": "Monitor LG 24 inci",
+    "kategori": "Elektronik",
+    "kondisi": "Baik",
+    "lokasi": "Ruang IT",
+    "jumlah": 3,
+    "image": "https://els.id/wp-content/uploads/2023/11/LG-LED-24-24MR400-6.jpg",
+    "deskripsi": "Monitor layar lebar untuk produktivitas"
+  },
+  {
+    "id": 16,
+    "nama": "Kabel HDMI",
+    "kategori": "Elektronik",
+    "kondisi": "Baik",
+    "lokasi": "Ruang Guru",
+    "jumlah": 130,
+    "image": "https://www.ngy.co.id/wp-content/uploads/2023/08/DSC00766-copy-2-scaled.jpg",
+    "deskripsi": "Kabel HDMI kualitas tinggi untuk kebutuhan kantor."
+  },
+  {
+    "id": 18,
+    "nama": "Meja Kerja HRD",
+    "kategori": "Furniture",
+    "kondisi": "Baik",
+    "lokasi": "Ruang HRD",
+    "jumlah": 3,
+    "image": "https://images.tokopedia.net/img/cache/500-square/VqbcmM/2022/4/22/5866a0bc-725e-4383-8d9c-616d6fc67639.jpg",
+    "deskripsi": "Meja kantor ukuran sedang untuk tim HR"
+  },
+  {
+    "id": 19,
+    "nama": "AC Split Panasonic",
+    "kategori": "Elektronik",
+    "kondisi": "Baik",
+    "lokasi": "Ruang Rapat",
+    "jumlah": 1,
+    "image": "https://media.dinomarket.com/docs/imgTD/2022-10/DM_EA531DACC2F45B478CCA1C00B57F3ABA_181022161059_ll.jpg",
+    "deskripsi": "Pendingin ruangan kapasitas 2 PK"
+  },
+  {
+    "id": 20,
+    "nama": "Rak Arsip Besi",
+    "kategori": "Peralatan Arsip",
+    "kondisi": "Baik",
+    "lokasi": "Gudang",
+    "jumlah": 4,
+    "image": "https://sosialita.tanahlautkab.go.id/assets/uploads/webp/fotoproduk/crop/29V5vobs20240806111334.jpeg.webp",
+    "deskripsi": "Rak untuk menyimpan dokumen lama"
+  },
+  {
+    "id": 21,
+    "nama": "Scanner Dokumen",
+    "kategori": "Elektronik",
+    "kondisi": "Baik",
+    "lokasi": "Ruang Keuangan",
+    "jumlah": 1,
+    "image": "https://images.hp.com/scanner",
+    "deskripsi": "Scanner dokumen untuk digitalisasi arsip"
+  },
+  {
+    "id": 22,
+    "nama": "Meja Resepsionis",
+    "kategori": "Furniture",
+    "kondisi": "Baik",
+    "lokasi": "Resepsionis",
+    "jumlah": 1,
+    "image": "https://images.unsplash.com/resepsionis",
+    "deskripsi": "Meja depan untuk penyambutan tamu"
+  },
+  {
+    "id": 23,
+    "nama": "AC Portable",
+    "kategori": "Peralatan Kantor",
+    "kondisi": "Baik",
+    "lokasi": "Ruang Guru",
+    "jumlah": 52,
+    "image": "https://via.placeholder.com/150?text=AC+Portable",
+    "deskripsi": "AC Portable kualitas tinggi untuk kebutuhan kantor."
+  },
+  {
+    "id": 24,
+    "nama": "Scanner",
+    "kategori": "Elektronik",
+    "kondisi": "Baru",
+    "lokasi": "Ruang IT",
+    "jumlah": 281,
+    "image": "https://via.placeholder.com/150?text=Scanner",
+    "deskripsi": "Scanner kualitas tinggi untuk kebutuhan kantor."
+  },
+  {
+    "id": 25,
+    "nama": "Pulpen Merah",
+    "kategori": "Alat Tulis",
+    "kondisi": "Baru",
+    "lokasi": "Ruang Guru",
+    "jumlah": 4,
+    "image": "https://via.placeholder.com/150?text=Pulpen+Merah",
+    "deskripsi": "Pulpen Merah kualitas tinggi untuk kebutuhan kantor."
+  },
+  {
+    "id": 26,
+    "nama": "Stabilo Warna",
+    "kategori": "Elektronik",
+    "kondisi": "Baru",
+    "lokasi": "Perpustakaan",
+    "jumlah": 177,
+    "image": "https://via.placeholder.com/150?text=Stabilo+Warna",
+    "deskripsi": "Stabilo Warna kualitas tinggi untuk kebutuhan kantor."
+  },
+  {
+    "id": 27,
+    "nama": "Buku Catatan",
+    "kategori": "Peralatan Kantor",
+    "kondisi": "Baru",
+    "lokasi": "Ruang IT",
+    "jumlah": 94,
+    "image": "https://via.placeholder.com/150?text=Buku+Catatan",
+    "deskripsi": "Buku Catatan kualitas tinggi untuk kebutuhan kantor."
+  },
+  {
+    "id": 28,
+    "nama": "Penggaris Besi",
+    "kategori": "Furniture",
+    "kondisi": "Rusak",
+    "lokasi": "Ruang IT",
+    "jumlah": 61,
+    "image": "https://via.placeholder.com/150?text=Penggaris+Besi",
+    "deskripsi": "Penggaris Besi kualitas tinggi untuk kebutuhan kantor."
+  },
+  {
+    "id": 29,
+    "nama": "Kalkulator",
+    "kategori": "Furniture",
+    "kondisi": "Baik",
+    "lokasi": "Ruang IT",
+    "jumlah": 46,
+    "image": "https://via.placeholder.com/150?text=Kalkulator",
+    "deskripsi": "Kalkulator kualitas tinggi untuk kebutuhan kantor."
+  },
+  {
+    "id": 30,
+    "nama": "Lem Kertas",
+    "kategori": "Furniture",
+    "kondisi": "Baru",
+    "lokasi": "Gudang",
+    "jumlah": 139,
+    "image": "https://via.placeholder.com/150?text=Lem+Kertas",
+    "deskripsi": "Lem Kertas kualitas tinggi untuk kebutuhan kantor."
+  },
+  {
+    "id": 31,
+    "nama": "Binder",
+    "kategori": "Alat Tulis",
+    "kondisi": "Baik",
+    "lokasi": "Ruang IT",
+    "jumlah": 110,
+    "image": "https://via.placeholder.com/150?text=Binder",
+    "deskripsi": "Binder kualitas tinggi untuk kebutuhan kantor."
+  },
+  {
+    "id": 32,
+    "nama": "Spidol Hitam",
+    "kategori": "Elektronik",
+    "kondisi": "Rusak",
+    "lokasi": "Ruang IT",
+    "jumlah": 126,
+    "image": "https://via.placeholder.com/150?text=Spidol+Hitam",
+    "deskripsi": "Spidol Hitam kualitas tinggi untuk kebutuhan kantor."
+  },
+  {
+    "id": 33,
+    "nama": "Tas Laptop",
+    "kategori": "Alat Tulis",
+    "kondisi": "Bekas",
+    "lokasi": "Perpustakaan",
+    "jumlah": 179,
+    "image": "https://via.placeholder.com/150?text=Tas+Laptop",
+    "deskripsi": "Tas Laptop kualitas tinggi untuk kebutuhan kantor."
+  },
+  {
+    "id": 34,
+    "nama": "Harddisk Eksternal",
+    "kategori": "Elektronik",
+    "kondisi": "Baru",
+    "lokasi": "Perpustakaan",
+    "jumlah": 258,
+    "image": "https://via.placeholder.com/150?text=Harddisk+Eksternal",
+    "deskripsi": "Harddisk Eksternal kualitas tinggi untuk kebutuhan kantor."
+  },
+  {
+    "id": 35,
+    "nama": "Flashdisk",
+    "kategori": "Alat Tulis",
+    "kondisi": "Baik",
+    "lokasi": "Ruang IT",
+    "jumlah": 207,
+    "image": "https://via.placeholder.com/150?text=Flashdisk",
+    "deskripsi": "Flashdisk kualitas tinggi untuk kebutuhan kantor."
+  },
+  {
+    "id": 36,
+    "nama": "Speaker Bluetooth",
+    "kategori": "Alat Tulis",
+    "kondisi": "Baru",
+    "lokasi": "Ruang Guru",
+    "jumlah": 217,
+    "image": "https://via.placeholder.com/150?text=Speaker+Bluetooth",
+    "deskripsi": "Speaker Bluetooth kualitas tinggi untuk kebutuhan kantor."
+  },
+  {
+    "id": 37,
+    "nama": "Headset",
+    "kategori": "Alat Tulis",
+    "kondisi": "Bekas",
+    "lokasi": "Ruang Guru",
+    "jumlah": 165,
+    "image": "https://via.placeholder.com/150?text=Headset",
+    "deskripsi": "Headset kualitas tinggi untuk kebutuhan kantor."
+  },
+  {
+    "id": 38,
+    "nama": "Tinta Printer",
+    "kategori": "Furniture",
+    "kondisi": "Baru",
+    "lokasi": "Ruang IT",
+    "jumlah": 83,
+    "image": "https://via.placeholder.com/150?text=Tinta+Printer",
+    "deskripsi": "Tinta Printer kualitas tinggi untuk kebutuhan kantor."
+  },
+  {
+    "id": 39,
+    "nama": "Papan Nama",
+    "kategori": "Furniture",
+    "kondisi": "Baru",
+    "lokasi": "Ruang IT",
+    "jumlah": 3,
+    "image": "https://via.placeholder.com/150?text=Papan+Nama",
+    "deskripsi": "Papan Nama kualitas tinggi untuk kebutuhan kantor."
+  },
+  {
+    "id": 40,
+    "nama": "Lampu Meja",
+    "kategori": "Alat Tulis",
+    "kondisi": "Baru",
+    "lokasi": "Gudang",
+    "jumlah": 69,
+    "image": "https://via.placeholder.com/150?text=Lampu+Meja",
+    "deskripsi": "Lampu Meja kualitas tinggi untuk kebutuhan kantor."
+  },
+  {
+    "id": 41,
+    "nama": "Jam Dinding",
+    "kategori": "Alat Tulis",
+    "kondisi": "Rusak",
+    "lokasi": "Perpustakaan",
+    "jumlah": 175,
+    "image": "https://via.placeholder.com/150?text=Jam+Dinding",
+    "deskripsi": "Jam Dinding kualitas tinggi untuk kebutuhan kantor."
+  },
+  {
+    "id": 42,
+    "nama": "Gunting Kertas",
+    "kategori": "Elektronik",
+    "kondisi": "Baik",
+    "lokasi": "Perpustakaan",
+    "jumlah": 138,
+    "image": "https://via.placeholder.com/150?text=Gunting+Kertas",
+    "deskripsi": "Gunting Kertas kualitas tinggi untuk kebutuhan kantor."
+  }
+]

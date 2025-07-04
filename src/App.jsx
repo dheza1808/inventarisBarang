@@ -1,3 +1,4 @@
+// src/App.jsx
 import {
   BrowserRouter as Router,
   Routes,
@@ -8,9 +9,13 @@ import {
 import { Suspense, lazy } from "react";
 import "./assets/tailwind.css";
 import LoginModal from "./components/LoginModal";
+import FAQPage from "./pages/Guest/FAQPage";
 
-// Lazy-load layouts & pages
+// Layouts
 const StaffLayout = lazy(() => import("./layouts/StaffLayout"));
+const MainLayout = lazy(() => import("./layouts/MainLayout")); // Guest layout
+
+// Staff Pages
 const Dashboard = lazy(() => import("./pages/StaffGudang/Dashboard"));
 const BarangMasuk = lazy(() => import("./pages/StaffGudang/BarangMasuk"));
 const BarangKeluar = lazy(() => import("./pages/StaffGudang/BarangKeluar"));
@@ -25,6 +30,12 @@ const LaporanMasuk = lazy(() => import("./pages/StaffGudang/LaporanMasuk"));
 const LaporanKeluar = lazy(() => import("./pages/StaffGudang/LaporanKeluar"));
 const Pengguna = lazy(() => import("./pages/StaffGudang/Pengguna"));
 
+// Guest Pages
+const Front = lazy(() => import("./pages/Guest/Front"));
+const About = lazy(() => import("./pages/Guest/About"));
+const Contact = lazy(() => import("./pages/Guest/Contact"));
+const Articles = lazy(() => import("./pages/Guest/Articles"));
+
 // Auth Pages
 const Profile = lazy(() => import("./pages/auth/Profile"));
 const EditProfile = lazy(() => import("./pages/auth/EditProfile"));
@@ -37,7 +48,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 
 const Loading = () => <div className="text-center mt-10">Loading...</div>;
 
-// Komponen terpisah agar bisa gunakan useLocation & useNavigate
+// Routing Wrapper (for modal login logic)
 function AppRoutes() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -54,8 +65,10 @@ function AppRoutes() {
       {isLoginModalOpen && <LoginModal onClose={handleCloseLogin} />}
 
       <Routes>
-        <Route path="/" element={<div />} /> {/* Modal login */}
-        {/* Halaman staff gudang */}
+        {/* Route kosong untuk modal login */}
+        <Route path="/" element={<div />} />
+
+        {/* ======== STAFF ROUTES ======== */}
         <Route path="/staffgudang" element={<StaffLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="masuk" element={<BarangMasuk />} />
@@ -69,16 +82,26 @@ function AppRoutes() {
           <Route path="laporan/keluar" element={<LaporanKeluar />} />
           <Route path="pengguna" element={<Pengguna />} />
         </Route>
-        {/* Halaman akun dan pengaturan */}
+
+        {/* ======== GUEST ROUTES ======== */}
+        <Route path="/guest" element={<MainLayout />}>
+          <Route index element={<Front />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="faq" element={<FAQPage />} />
+          <Route path="articles" element={<Articles />} />
+        </Route>
+
+        {/* ======== AUTH ROUTES ======== */}
         <Route path="/profile" element={<Profile />} />
         <Route path="/editprofile" element={<EditProfile />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/logout" element={<Logout />} />
-        <Route path="/notifikasi" element={<Notifikasi/>} />
-        {/* Tambahan halaman register dan forgot password */}
+        <Route path="/notifikasi" element={<Notifikasi />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot" element={<ForgotPassword />} />
-        {/* Not Found */}
+
+        {/* Catch-all NotFound */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

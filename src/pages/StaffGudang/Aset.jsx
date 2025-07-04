@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import EditAsetModal from "../../components/EditAsetModal";
+import EditAsetModal from "../../components/staff/EditAsetModal";
 import dataAset from "../../data/aset.json";
-import TambahAsetModal from "../../components/TambahAsetModal";
+import TambahAsetModal from "../../components/staff/TambahAsetModal";
 
 export default function Aset() {
   const [asetList, setAsetList] = useState(dataAset);

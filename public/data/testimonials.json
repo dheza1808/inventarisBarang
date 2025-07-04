@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "nama": "Rina Maulida",
+    "pesan": "Platform ini sangat membantu dalam pengelolaan aset kantor kami. Mudah digunakan dan efisien!",
+    "jabatan": "HR Manager"
+  },
+  {
+    "id": 2,
+    "nama": "Dedy Firmansyah",
+    "pesan": "Sangat praktis untuk pinjam barang. Tidak perlu lagi tanya-tanya manual.",
+    "jabatan": "Staff IT"
+  },
+  {
+    "id": 3,
+    "nama": "Lilis Santika",
+    "pesan": "Tampilan rapi dan fitur lengkap. Cocok untuk kebutuhan kantor modern.",
+    "jabatan": "Admin Gudang"
+  },
+  {
+    "id": 4,
+    "nama": "Lilis Santika",
+    "pesan": "Tampilan rapi dan fitur lengkap. Cocok untuk kebutuhan kantor modern.",
+    "jabatan": "Admin Gudang"
+  }
+  
+]

@@ -1,6 +1,6 @@
 // src/layouts/StaffLayout.jsx
-import Sidebar from "../components/Sidebar";
-import Navbar from "../components/Navbar";
+import Sidebar from "../components/staff/Sidebar";
+import Navbar from "../components/staff/Navbar";
 import { Outlet } from "react-router-dom";
 
 export default function StaffLayout() {
@@ -22,7 +22,6 @@ export default function StaffLayout() {
         </main>
 
         {/* Footer */}
-        
       </div>
     </div>
   );

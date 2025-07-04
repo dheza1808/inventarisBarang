@@ -1,0 +1,14 @@
+[
+  {
+    "pertanyaan": "Apakah sistem ini menyediakan dukungan pelanggan?",
+    "jawaban": "Ya, Anda dapat menghubungi admin melalui halaman kontak jika mengalami kendala."
+  },
+  {
+    "pertanyaan": "Apakah data bisa dicari berdasarkan kategori dan kondisi?",
+    "jawaban": "Ya, fitur pencarian lanjutan memungkinkan filter berdasarkan kategori, lokasi, dan kondisi barang."
+  },
+  {
+    "pertanyaan": "Bagaimana cara mengajukan peminjaman barang?",
+    "jawaban": "Klik detail barang, lalu tekan tombol 'Ajukan Peminjaman' dan isi formulir yang tersedia."
+  }
+]

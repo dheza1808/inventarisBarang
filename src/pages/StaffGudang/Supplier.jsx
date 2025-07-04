@@ -1,6 +1,6 @@
 import { useState } from "react";
 import dataSupplier from "../../data/supplier.json";
-import SupplierModal from "../../components/SupplierModal";
+import SupplierModal from "../../components/staff/SupplierModal";
 
 export default function Supplier() {
   const [supplierList, setSupplierList] = useState(dataSupplier);
