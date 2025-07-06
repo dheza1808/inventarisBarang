@@ -18,7 +18,9 @@ const MainLayout = lazy(() => import("./layouts/MainLayout")); // Guest layout
 // Staff Pages
 const Dashboard = lazy(() => import("./pages/StaffGudang/Dashboard"));
 const BarangMasuk = lazy(() => import("./pages/StaffGudang/BarangMasuk"));
-const BarangKeluar = lazy(() => import("./pages/StaffGudang/BarangKeluar"));
+const PersetujuanPeminjaman = lazy(() =>
+  import("./pages/StaffGudang/PersetujuanPeminjaman")
+);
 const RiwayatTransaksi = lazy(() =>
   import("./pages/StaffGudang/RiwayatTransaksi")
 );
@@ -29,12 +31,18 @@ const LaporanStok = lazy(() => import("./pages/StaffGudang/LaporanStok"));
 const LaporanMasuk = lazy(() => import("./pages/StaffGudang/LaporanMasuk"));
 const LaporanKeluar = lazy(() => import("./pages/StaffGudang/LaporanKeluar"));
 const Pengguna = lazy(() => import("./pages/StaffGudang/Pengguna"));
+const FaqPage = lazy(() => import("./pages/StaffGudang/FaqPage"));
 
 // Guest Pages
 const Front = lazy(() => import("./pages/Guest/Front"));
 const About = lazy(() => import("./pages/Guest/About"));
 const Contact = lazy(() => import("./pages/Guest/Contact"));
 const Articles = lazy(() => import("./pages/Guest/Articles"));
+const DetailArticles = lazy(() => import("./pages/Guest/DetailArticles"));
+const DetailPage = lazy(() => import("./pages/Guest/DetailPage"));
+const AdvancedSearch = lazy(() => import("./pages/Guest/AdvancedSearch"));
+
+
 
 // Auth Pages
 const Profile = lazy(() => import("./pages/auth/Profile"));
@@ -72,7 +80,7 @@ function AppRoutes() {
         <Route path="/staffgudang" element={<StaffLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="masuk" element={<BarangMasuk />} />
-          <Route path="keluar" element={<BarangKeluar />} />
+          <Route path="peminjaman" element={<PersetujuanPeminjaman />} />
           <Route path="riwayat" element={<RiwayatTransaksi />} />
           <Route path="aset" element={<Aset />} />
           <Route path="supplier" element={<Supplier />} />
@@ -81,6 +89,7 @@ function AppRoutes() {
           <Route path="laporan/masuk" element={<LaporanMasuk />} />
           <Route path="laporan/keluar" element={<LaporanKeluar />} />
           <Route path="pengguna" element={<Pengguna />} />
+          <Route path="faq" element={<FaqPage />} />
         </Route>
 
         {/* ======== GUEST ROUTES ======== */}
@@ -90,6 +99,13 @@ function AppRoutes() {
           <Route path="contact" element={<Contact />} />
           <Route path="faq" element={<FAQPage />} />
           <Route path="articles" element={<Articles />} />
+          <Route path="articles/:id" element={<DetailArticles />} />
+          <Route path="detail/:id" element={<DetailPage />} />
+          <Route path="advanced" element={<AdvancedSearch />} />
+        </Route>
+
+        <Route path="/advanced" element={<MainLayout />}>
+          <Route index element={<AdvancedSearch />} />
         </Route>
 
         {/* ======== AUTH ROUTES ======== */}

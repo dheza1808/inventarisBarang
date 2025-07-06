@@ -1,4 +1,11 @@
-import { FaCog, FaUserCircle, FaSignOutAlt, FaSignInAlt, FaUserPlus, FaQuestionCircle } from "react-icons/fa";
+import {
+  FaCog,
+  FaUserCircle,
+  FaSignOutAlt,
+  FaSignInAlt,
+  FaUserPlus,
+  FaQuestionCircle,
+} from "react-icons/fa";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -11,7 +18,13 @@ export default function Navbar() {
     <header className="bg-gradient-to-r from-purple-800 to-blue-800 text-white px-6 py-3 shadow-md flex items-center justify-between w-full z-50">
       <h1 className="text-lg font-black tracking-wide">Sistem Inventaris</h1>
       <nav className="flex items-center gap-6 relative">
-        
+        <Link
+          to="/staffgudang/faq"
+          className="flex items-center gap-2 hover:text-yellow-300 transition"
+        >
+          <FaQuestionCircle /> <span>FAQ</span>
+        </Link>
+
         {/* Settings Dropdown */}
         <div className="relative">
           <button
@@ -26,10 +39,16 @@ export default function Navbar() {
           </button>
           {showSettingsMenu && (
             <div className="absolute right-0 mt-2 w-48 bg-white text-gray-800 rounded shadow z-50">
-              <Link to="/settings" className="block px-4 py-2 hover:bg-gray-100 text-sm">
+              <Link
+                to="/settings"
+                className="block px-4 py-2 hover:bg-gray-100 text-sm"
+              >
                 <FaCog className="inline mr-2" /> Pengaturan Umum
               </Link>
-              <Link to="/editprofile" className="block px-4 py-2 hover:bg-gray-100 text-sm">
+              <Link
+                to="/editprofile"
+                className="block px-4 py-2 hover:bg-gray-100 text-sm"
+              >
                 <FaUserCircle className="inline mr-2" /> Edit Profil
               </Link>
             </div>
@@ -50,10 +69,16 @@ export default function Navbar() {
           </button>
           {showAccountMenu && (
             <div className="absolute right-0 mt-2 w-44 bg-white text-gray-800 rounded shadow z-50">
-              <Link to="/profile" className="block px-4 py-2 hover:bg-gray-100 text-sm">
+              <Link
+                to="/profile"
+                className="block px-4 py-2 hover:bg-gray-100 text-sm"
+              >
                 <FaUserCircle className="inline mr-2" /> Profil Saya
               </Link>
-              <Link to="/logout" className="block px-4 py-2 hover:bg-gray-100 text-sm">
+              <Link
+                to="/logout"
+                className="block px-4 py-2 hover:bg-gray-100 text-sm"
+              >
                 <FaSignOutAlt className="inline mr-2" /> Keluar
               </Link>
             </div>

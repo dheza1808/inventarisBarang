@@ -38,7 +38,7 @@ export default function Catalog({ searchTerm }) {
             filteredItems.map((item) => (
               <div
                 key={item.id}
-                onClick={() => navigate(`/detail/${item.id}`)}
+                onClick={() => navigate(`/guest/detail/${item.id}`)}
                 className="cursor-pointer flex-shrink-0 w-40 bg-white/90 rounded-xl shadow-md hover:shadow-lg transition-transform transform hover:scale-105"
               >
                 <img

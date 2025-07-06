@@ -33,17 +33,27 @@ export default function Sidebar() {
         <NavLink
           to="/staffgudang"
           className={({ isActive }) =>
-            `${linkClass} ${isActive ? "bg-indigo-100 text-indigo-800 font-semibold" : "text-white"}`
+            `${linkClass} ${
+              isActive
+                ? "bg-indigo-100 text-indigo-800 font-semibold"
+                : "text-white"
+            }`
           }
         >
           <FaHome /> Dashboard
         </NavLink>
 
-        <p className="text-xs text-indigo-300 uppercase font-semibold mt-2">Master</p>
+        <p className="text-xs text-indigo-300 uppercase font-semibold mt-2">
+          Master
+        </p>
         <NavLink
           to="/staffgudang/aset"
           className={({ isActive }) =>
-            `${linkClass} ${isActive ? "bg-indigo-100 text-indigo-800 font-semibold" : "text-white"}`
+            `${linkClass} ${
+              isActive
+                ? "bg-indigo-100 text-indigo-800 font-semibold"
+                : "text-white"
+            }`
           }
         >
           <FaBoxes /> Data Aset
@@ -51,7 +61,11 @@ export default function Sidebar() {
         <NavLink
           to="/staffgudang/supplier"
           className={({ isActive }) =>
-            `${linkClass} ${isActive ? "bg-indigo-100 text-indigo-800 font-semibold" : "text-white"}`
+            `${linkClass} ${
+              isActive
+                ? "bg-indigo-100 text-indigo-800 font-semibold"
+                : "text-white"
+            }`
           }
         >
           <FaTruck /> Supplier
@@ -59,41 +73,63 @@ export default function Sidebar() {
         <NavLink
           to="/staffgudang/customer"
           className={({ isActive }) =>
-            `${linkClass} ${isActive ? "bg-indigo-100 text-indigo-800 font-semibold" : "text-white"}`
+            `${linkClass} ${
+              isActive
+                ? "bg-indigo-100 text-indigo-800 font-semibold"
+                : "text-white"
+            }`
           }
         >
           <FaUsers /> Customer
         </NavLink>
 
-        <p className="text-xs text-indigo-300 uppercase font-semibold mt-2">Transaksi</p>
+        <p className="text-xs text-indigo-300 uppercase font-semibold mt-2">
+          Transaksi
+        </p>
         <NavLink
           to="/staffgudang/masuk"
           className={({ isActive }) =>
-            `${linkClass} ${isActive ? "bg-indigo-100 text-indigo-800 font-semibold" : "text-white"}`
+            `${linkClass} ${
+              isActive
+                ? "bg-indigo-100 text-indigo-800 font-semibold"
+                : "text-white"
+            }`
           }
         >
           <FaArrowCircleDown /> Barang Masuk
         </NavLink>
         <NavLink
-          to="/staffgudang/keluar"
+          to="/staffgudang/peminjaman"
           className={({ isActive }) =>
-            `${linkClass} ${isActive ? "bg-indigo-100 text-indigo-800 font-semibold" : "text-white"}`
+            `${linkClass} ${
+              isActive
+                ? "bg-indigo-100 text-indigo-800 font-semibold"
+                : "text-white"
+            }`
           }
         >
-          <FaArrowCircleUp /> Barang Keluar
+          <FaArrowCircleUp /> Persetujuan Peminjaman
         </NavLink>
 
-        <p className="text-xs text-indigo-300 uppercase font-semibold mt-2">Riwayat</p>
+        <p className="text-xs text-indigo-300 uppercase font-semibold mt-2">
+          Riwayat
+        </p>
         <NavLink
           to="/staffgudang/riwayat"
           className={({ isActive }) =>
-            `${linkClass} ${isActive ? "bg-indigo-100 text-indigo-800 font-semibold" : "text-white"}`
+            `${linkClass} ${
+              isActive
+                ? "bg-indigo-100 text-indigo-800 font-semibold"
+                : "text-white"
+            }`
           }
         >
           <FaClipboardList /> Riwayat Transaksi
         </NavLink>
 
-        <p className="text-xs text-indigo-300 uppercase font-semibold mt-2">Laporan</p>
+        <p className="text-xs text-indigo-300 uppercase font-semibold mt-2">
+          Laporan
+        </p>
         <button
           onClick={() => setOpenLaporan(!openLaporan)}
           className="flex items-center justify-between p-2 rounded-md text-sm hover:bg-indigo-200 hover:text-indigo-800 w-full"
@@ -101,7 +137,11 @@ export default function Sidebar() {
           <div className="flex items-center gap-3">
             <FaFileAlt /> Laporan
           </div>
-          <span className={`transform transition-transform ${openLaporan ? "rotate-180" : ""}`}>
+          <span
+            className={`transform transition-transform ${
+              openLaporan ? "rotate-180" : ""
+            }`}
+          >
             ▼
           </span>
         </button>
@@ -110,7 +150,11 @@ export default function Sidebar() {
             <NavLink
               to="/staffgudang/laporan/stok"
               className={({ isActive }) =>
-                `${linkClass} ${isActive ? "bg-indigo-100 text-indigo-800 font-semibold" : "text-white"}`
+                `${linkClass} ${
+                  isActive
+                    ? "bg-indigo-100 text-indigo-800 font-semibold"
+                    : "text-white"
+                }`
               }
             >
               Stok
@@ -118,7 +162,11 @@ export default function Sidebar() {
             <NavLink
               to="/staffgudang/laporan/masuk"
               className={({ isActive }) =>
-                `${linkClass} ${isActive ? "bg-indigo-100 text-indigo-800 font-semibold" : "text-white"}`
+                `${linkClass} ${
+                  isActive
+                    ? "bg-indigo-100 text-indigo-800 font-semibold"
+                    : "text-white"
+                }`
               }
             >
               Barang Masuk
@@ -126,7 +174,11 @@ export default function Sidebar() {
             <NavLink
               to="/staffgudang/laporan/keluar"
               className={({ isActive }) =>
-                `${linkClass} ${isActive ? "bg-indigo-100 text-indigo-800 font-semibold" : "text-white"}`
+                `${linkClass} ${
+                  isActive
+                    ? "bg-indigo-100 text-indigo-800 font-semibold"
+                    : "text-white"
+                }`
               }
             >
               Barang Keluar
@@ -134,21 +186,33 @@ export default function Sidebar() {
           </div>
         )}
 
-        <p className="text-xs text-indigo-300 uppercase font-semibold mt-2">Notifikasi</p>
+        <p className="text-xs text-indigo-300 uppercase font-semibold mt-2">
+          Notifikasi
+        </p>
         <NavLink
           to="/auth/notifikasi"
           className={({ isActive }) =>
-            `${linkClass} ${isActive ? "bg-indigo-100 text-indigo-800 font-semibold" : "text-white"}`
+            `${linkClass} ${
+              isActive
+                ? "bg-indigo-100 text-indigo-800 font-semibold"
+                : "text-white"
+            }`
           }
         >
           <FaBell /> Notifikasi
         </NavLink>
 
-        <p className="text-xs text-indigo-300 uppercase font-semibold mt-2">Pengaturan</p>
+        <p className="text-xs text-indigo-300 uppercase font-semibold mt-2">
+          Pengaturan
+        </p>
         <NavLink
           to="/staffgudang/pengguna"
           className={({ isActive }) =>
-            `${linkClass} ${isActive ? "bg-indigo-100 text-indigo-800 font-semibold" : "text-white"}`
+            `${linkClass} ${
+              isActive
+                ? "bg-indigo-100 text-indigo-800 font-semibold"
+                : "text-white"
+            }`
           }
         >
           <FaUserCog /> Manajemen Pengguna

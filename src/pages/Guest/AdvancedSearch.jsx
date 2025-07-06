@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function AdvancedSearch() {
   const [inventoryData, setInventoryData] = useState([]);
@@ -35,7 +36,7 @@ export default function AdvancedSearch() {
   const kondisiOptions = [...new Set(inventoryData.map(item => item.kondisi))];
 
   return (
-    <MainLayout>
+    <>
       {/* Filter */}
       <div className="px-6 w-full">
         <div className="flex flex-wrap justify-center gap-4 bg-white/10 backdrop-blur-md p-4 rounded-2xl">
@@ -86,7 +87,7 @@ export default function AdvancedSearch() {
       <div className="mt-10 flex flex-wrap justify-center gap-6 px-6">
         {results.map(item => (
           <Link
-            to={`/detail/${item.id}`}
+            to={`/guest/detail/${item.id}`}
             key={item.id}
             className="bg-white/10 w-[200px] rounded-xl p-4 text-white hover:bg-white/20 transition-all shadow-md backdrop-blur cursor-pointer no-underline"
           >
@@ -108,6 +109,6 @@ export default function AdvancedSearch() {
       {results.length === 0 && (
         <p className="text-center text-gray-300 mt-6">Tidak ditemukan barang yang sesuai.</p>
       )}
-    </MainLayout>
+    </>
   );
 }
