@@ -1,4 +1,3 @@
-// components/EditAsetModal.jsx
 import { useState, useEffect } from "react";
 
 export default function EditAsetModal({ aset, onClose, onSave }) {
@@ -35,6 +34,31 @@ export default function EditAsetModal({ aset, onClose, onSave }) {
               required
             />
           </div>
+
+          <div>
+            <label className="text-sm font-medium">Jumlah</label>
+            <input
+              type="number"
+              name="jumlah"
+              value={formData.jumlah}
+              onChange={handleChange}
+              className="w-full border px-3 py-2 rounded text-sm"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="text-sm font-medium">Supplier</label>
+            <input
+              type="text"
+              name="supplier"
+              value={formData.supplier}
+              onChange={handleChange}
+              className="w-full border px-3 py-2 rounded text-sm"
+              required
+            />
+          </div>
+
           <div>
             <label className="text-sm font-medium">Lokasi</label>
             <select
@@ -46,8 +70,11 @@ export default function EditAsetModal({ aset, onClose, onSave }) {
               <option value="Gudang A">Gudang A</option>
               <option value="Gudang B">Gudang B</option>
               <option value="Gudang C">Gudang C</option>
+              <option value="Ruang IT">Ruang IT</option>
+              <option value="Kantor Utama">Kantor Utama</option>
             </select>
           </div>
+
           <div>
             <label className="text-sm font-medium">Kondisi</label>
             <select
@@ -61,6 +88,7 @@ export default function EditAsetModal({ aset, onClose, onSave }) {
               <option value="Perlu Perawatan">Perlu Perawatan</option>
             </select>
           </div>
+
           <div>
             <label className="text-sm font-medium">Penanggung Jawab</label>
             <input
@@ -72,11 +100,19 @@ export default function EditAsetModal({ aset, onClose, onSave }) {
               required
             />
           </div>
+
           <div className="flex justify-end gap-2">
-            <button type="button" onClick={onClose} className="text-sm px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">
+            <button
+              type="button"
+              onClick={onClose}
+              className="text-sm px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
+            >
               Batal
             </button>
-            <button type="submit" className="text-sm px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">
+            <button
+              type="submit"
+              className="text-sm px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700"
+            >
               Simpan
             </button>
           </div>

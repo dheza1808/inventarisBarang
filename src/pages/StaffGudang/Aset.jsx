@@ -1,59 +1,53 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import EditAsetModal from "../../components/staff/EditAsetModal";
-import dataAset from "../../data/aset.json";
-import TambahAsetModal from "../../components/staff/TambahAsetModal";
 
 export default function Aset() {
-  const [asetList, setAsetList] = useState(dataAset);
+  const [asetList, setAsetList] = useState([]);
   const [filterLokasi, setFilterLokasi] = useState("");
   const [filterKondisi, setFilterKondisi] = useState("");
   const [editingAset, setEditingAset] = useState(null);
-  const [showTambahModal, setShowTambahModal] = useState(false);
 
-  // Simpan perubahan ke localStorage (opsional)
   useEffect(() => {
-    localStorage.setItem("data_aset", JSON.stringify(asetList));
+    const data = JSON.parse(localStorage.getItem("data_aset")) || [];
+    setAsetList(data);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("barang_masuk", JSON.stringify(asetList));
   }, [asetList]);
 
   const handleDelete = (id) => {
-    const confirmed = confirm("Yakin ingin menghapus aset ini?");
-    if (confirmed) {
-      setAsetList((prev) => prev.filter((aset) => aset.id !== id));
+    const confirmDelete = confirm("Yakin ingin menghapus aset ini?");
+    if (confirmDelete) {
+      const updated = asetList.filter((item) => item.id !== id);
+      setAsetList(updated);
     }
   };
 
-  const handleEdit = (aset) => {
-    setEditingAset(aset);
+  const handleEdit = (item) => {
+    setEditingAset(item);
   };
 
-  const handleTambahAset = (newAset) => {
-    setAsetList((prev) => [...prev, newAset]);
-  };
-
-  const handleSaveEdit = (updatedAset) => {
-    setAsetList((prev) =>
-      prev.map((item) => (item.id === updatedAset.id ? updatedAset : item))
+  const handleSaveEdit = (updatedItem) => {
+    const updated = asetList.map((item) =>
+      item.id === updatedItem.id ? updatedItem : item
     );
+    setAsetList(updated);
     setEditingAset(null);
   };
 
-  const filteredAset = asetList.filter((aset) => {
-    return (
-      (filterLokasi === "" || aset.lokasi === filterLokasi) &&
-      (filterKondisi === "" || aset.kondisi === filterKondisi)
-    );
-  });
+  const filteredAset = asetList.filter(
+    (item) =>
+      (filterLokasi === "" || item.lokasi === filterLokasi) &&
+      (filterKondisi === "" || item.kondisi === filterKondisi)
+  );
 
   return (
     <div className="p-6">
       <div className="flex items-center justify-between mb-4">
-        <h1 className="text-2xl font-bold text-indigo-800">Manajemen Aset</h1>
-        <button
-          onClick={() => setShowTambahModal(true)}
-          className="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 text-sm"
-        >
-          + Tambah Aset
-        </button>
+        <h1 className="text-2xl font-bold text-indigo-800">
+          Data Aset Perkantoran
+        </h1>
       </div>
 
       {/* Filter */}
@@ -68,7 +62,8 @@ export default function Aset() {
             <option value="">Semua</option>
             <option value="Gudang A">Gudang A</option>
             <option value="Gudang B">Gudang B</option>
-            <option value="Gudang C">Gudang C</option>
+            <option value="Ruang IT">Ruang IT</option>
+            <option value="Kantor Utama">Kantor Utama</option>
           </select>
         </div>
         <div>
@@ -86,13 +81,14 @@ export default function Aset() {
         </div>
       </div>
 
-      {/* Tabel Aset */}
+      {/* Tabel */}
       <div className="overflow-x-auto">
         <table className="w-full text-sm text-left text-gray-700 border border-gray-200">
           <thead className="text-xs uppercase bg-indigo-100 text-indigo-700">
             <tr>
-              <th className="px-4 py-2 border">ID</th>
-              <th className="px-4 py-2 border">Nama Aset</th>
+              <th className="px-4 py-2 border">Nama Barang</th>
+              <th className="px-4 py-2 border">Jumlah</th>
+              <th className="px-4 py-2 border">Supplier</th>
               <th className="px-4 py-2 border">Lokasi</th>
               <th className="px-4 py-2 border">Kondisi</th>
               <th className="px-4 py-2 border">Penanggung Jawab</th>
@@ -100,32 +96,34 @@ export default function Aset() {
             </tr>
           </thead>
           <tbody>
-            {filteredAset.map((aset) => (
-              <tr key={aset.id} className="bg-white hover:bg-indigo-50">
-                <td className="px-4 py-2 border">{aset.id}</td>
-                <td className="px-4 py-2 border font-medium">{aset.nama}</td>
-                <td className="px-4 py-2 border">{aset.lokasi}</td>
-                <td className="px-4 py-2 border">{aset.kondisi}</td>
-                <td className="px-4 py-2 border">{aset.penanggungJawab}</td>
-                <td className="px-4 py-2 border text-center">
-                  <button
-                    onClick={() => handleEdit(aset)}
-                    className="text-blue-600 hover:underline text-xs mr-2"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => handleDelete(aset.id)}
-                    className="text-red-600 hover:underline text-xs"
-                  >
-                    Hapus
-                  </button>
-                </td>
-              </tr>
-            ))}
-            {filteredAset.length === 0 && (
+            {filteredAset.length > 0 ? (
+              filteredAset.map((item) => (
+                <tr key={item.id} className="bg-white hover:bg-indigo-50">
+                  <td className="px-4 py-2 border font-medium">{item.nama}</td>
+                  <td className="px-4 py-2 border">{item.jumlah}</td>
+                  <td className="px-4 py-2 border">{item.supplier}</td>
+                  <td className="px-4 py-2 border">{item.lokasi}</td>
+                  <td className="px-4 py-2 border">{item.kondisi}</td>
+                  <td className="px-4 py-2 border">{item.penanggungJawab}</td>
+                  <td className="px-4 py-2 border text-center">
+                    <button
+                      onClick={() => handleEdit(item)}
+                      className="text-blue-600 hover:underline text-xs mr-2"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleDelete(item.id)}
+                      className="text-red-600 hover:underline text-xs"
+                    >
+                      Hapus
+                    </button>
+                  </td>
+                </tr>
+              ))
+            ) : (
               <tr>
-                <td colSpan={6} className="text-center text-gray-400 py-4">
+                <td colSpan="7" className="text-center text-gray-500 py-4">
                   Tidak ada data aset ditemukan.
                 </td>
               </tr>
@@ -140,13 +138,6 @@ export default function Aset() {
           aset={editingAset}
           onClose={() => setEditingAset(null)}
           onSave={handleSaveEdit}
-        />
-      )}
-
-      {showTambahModal && (
-        <TambahAsetModal
-          onClose={() => setShowTambahModal(false)}
-          onTambah={handleTambahAset}
         />
       )}
     </div>

@@ -4,20 +4,37 @@ import { useNavigate } from "react-router-dom";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log("Login:", { email, password });
-    alert("Login berhasil! (simulasi)");
-    // Tambahkan logika autentikasi di sini
+
+    // Simulasi login - ganti dengan logika backend/API nanti
+    if (email === "admin@example.com" && password === "admin123") {
+      // Simpan data login di localStorage
+      localStorage.setItem("user", JSON.stringify({ email }));
+      
+      setError(null); // hapus error jika sebelumnya salah
+      navigate("/staffgudang"); // ✅ arahkan ke dashboard staff
+    } else {
+      setError("Email atau password salah.");
+    }
   };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-r from-purple-700 to-indigo-800 bg-opacity-90 backdrop-blur-sm">
       <div className="bg-white w-full max-w-md p-8 rounded-xl shadow-2xl">
         <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
-          Selamat Datang </h2>
+          Selamat Datang
+        </h2>
+
+        {/* Tampilkan error jika login gagal */}
+        {error && (
+          <div className="bg-red-100 text-red-700 px-4 py-2 rounded mb-4 text-sm text-center">
+            {error}
+          </div>
+        )}
 
         <form onSubmit={handleLogin} className="space-y-5">
           <div>
@@ -48,7 +65,6 @@ export default function Login() {
           </button>
         </form>
 
-        {/* Tautan tambahan */}
         <div className="mt-4 text-center text-sm text-gray-600">
           Belum punya akun?{" "}
           <span
@@ -59,7 +75,7 @@ export default function Login() {
           </span>
           <br />
           <span
-            onClick={() => navigate("/forgot-password")}
+            onClick={() => navigate("/forgot")}
             className="text-red-500 hover:underline cursor-pointer font-medium"
           >
             Lupa Password?

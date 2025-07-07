@@ -1,7 +1,16 @@
+// BarangMasuk.jsx
 import { useState } from "react";
 
 export default function BarangMasuk() {
-  const [form, setForm] = useState({ nama: "", jumlah: "", supplier: "" });
+  const [form, setForm] = useState({
+    nama: "",
+    jumlah: "",
+    supplier: "",
+    lokasi: "",
+    kondisi: "",
+    penanggungJawab: "",
+  });
+
   const [notif, setNotif] = useState("");
 
   const handleChange = (e) => {
@@ -10,9 +19,9 @@ export default function BarangMasuk() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { nama, jumlah, supplier } = form;
+    const { nama, jumlah, supplier, lokasi, kondisi, penanggungJawab } = form;
 
-    if (!nama || !jumlah || !supplier) {
+    if (!nama || !jumlah || !supplier || !lokasi || !kondisi || !penanggungJawab) {
       return setNotif("⚠️ Semua field wajib diisi.");
     }
 
@@ -23,23 +32,34 @@ export default function BarangMasuk() {
       created_at: new Date().toISOString(),
     };
 
-    const existing = JSON.parse(localStorage.getItem("barang_masuk")) || [];
-    const updated = [newEntry, ...existing];
-    localStorage.setItem("barang_masuk", JSON.stringify(updated));
+    const existingMasuk = JSON.parse(localStorage.getItem("barang_masuk")) || [];
+    localStorage.setItem("barang_masuk", JSON.stringify([newEntry, ...existingMasuk]));
 
-    setForm({ nama: "", jumlah: "", supplier: "" });
-    setNotif("✅ Data berhasil disimpan ke Riwayat Transaksi.");
+    const existingAset = JSON.parse(localStorage.getItem("data_aset")) || [];
+    localStorage.setItem("data_aset", JSON.stringify([...existingAset, newEntry]));
+
+    setForm({
+      nama: "",
+      jumlah: "",
+      supplier: "",
+      lokasi: "",
+      kondisi: "",
+      penanggungJawab: "",
+    });
+    setNotif("✅ Data aset berhasil ditambahkan ke Barang Masuk dan Aset.");
   };
 
   return (
-    <div className="max-w-xl mx-auto mt-8 bg-white shadow-md rounded-xl p-6">
-      <h1 className="text-2xl font-bold text-blue-700 mb-6">Form Barang Masuk</h1>
+    <div className="max-w-2xl mx-auto mt-8 bg-white shadow-md rounded-xl p-6">
+      <h1 className="text-2xl font-bold text-indigo-700 mb-6">Form Barang Masuk (Aset Perkantoran)</h1>
+
       {notif && (
-        <div className="mb-4 text-sm text-center px-4 py-2 rounded bg-blue-50 border border-blue-300 text-blue-800">
+        <div className="mb-4 text-sm text-center px-4 py-2 rounded bg-indigo-50 border border-indigo-300 text-indigo-800">
           {notif}
         </div>
       )}
-      <form onSubmit={handleSubmit} className="space-y-4">
+
+      <form onSubmit={handleSubmit} className="space-y-4 text-sm">
         <input
           name="nama"
           type="text"
@@ -59,13 +79,47 @@ export default function BarangMasuk() {
         <input
           name="supplier"
           type="text"
-          placeholder="Supplier"
+          placeholder="Nama Supplier"
           value={form.supplier}
           onChange={handleChange}
           className="w-full px-4 py-2 border rounded"
         />
-        <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded">
-          Simpan
+        <input
+          name="penanggungJawab"
+          type="text"
+          placeholder="Penanggung Jawab"
+          value={form.penanggungJawab}
+          onChange={handleChange}
+          className="w-full px-4 py-2 border rounded"
+        />
+
+        <select
+          name="lokasi"
+          value={form.lokasi}
+          onChange={handleChange}
+          className="w-full px-4 py-2 border rounded"
+        >
+          <option value="">Pilih Lokasi</option>
+          <option value="Gudang A">Gudang A</option>
+          <option value="Gudang B">Gudang B</option>
+          <option value="Ruang IT">Ruang IT</option>
+          <option value="Kantor Utama">Kantor Utama</option>
+        </select>
+
+        <select
+          name="kondisi"
+          value={form.kondisi}
+          onChange={handleChange}
+          className="w-full px-4 py-2 border rounded"
+        >
+          <option value="">Pilih Kondisi</option>
+          <option value="Baik">Baik</option>
+          <option value="Rusak">Rusak</option>
+          <option value="Perlu Perawatan">Perlu Perawatan</option>
+        </select>
+
+        <button type="submit" className="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700">
+          Simpan ke Barang Masuk
         </button>
       </form>
     </div>

@@ -59,18 +59,6 @@ export default function Sidebar() {
           <FaBoxes /> Data Aset
         </NavLink>
         <NavLink
-          to="/staffgudang/supplier"
-          className={({ isActive }) =>
-            `${linkClass} ${
-              isActive
-                ? "bg-indigo-100 text-indigo-800 font-semibold"
-                : "text-white"
-            }`
-          }
-        >
-          <FaTruck /> Supplier
-        </NavLink>
-        <NavLink
           to="/staffgudang/customer"
           className={({ isActive }) =>
             `${linkClass} ${
