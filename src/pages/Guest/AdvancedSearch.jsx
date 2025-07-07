@@ -87,7 +87,7 @@ export default function AdvancedSearch() {
       <div className="mt-10 flex flex-wrap justify-center gap-6 px-6">
         {results.map(item => (
           <Link
-            to={`/guest/detail/${item.id}`}
+            to={`/detail/${item.id}`}
             key={item.id}
             className="bg-white/10 w-[200px] rounded-xl p-4 text-white hover:bg-white/20 transition-all shadow-md backdrop-blur cursor-pointer no-underline"
           >

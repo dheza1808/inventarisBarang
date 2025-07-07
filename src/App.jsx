@@ -20,7 +20,7 @@ const About = lazy(() => import("./pages/Guest/About"));
 const Contact = lazy(() => import("./pages/Guest/Contact"));
 const FAQPageGuest = lazy(() => import("./pages/Guest/FAQPage"));
 const Articles = lazy(() => import("./pages/Guest/Articles"));
-const DetailArticles = lazy(() => import("./pages/Guest/DetailArticles"));
+const DetailArticle = lazy(() => import("./pages/Guest/DetailArticle"));
 const DetailPage = lazy(() => import("./pages/Guest/DetailPage"));
 const AdvancedSearch = lazy(() => import("./pages/Guest/AdvancedSearch"));
 
@@ -60,7 +60,7 @@ function AppRoutes() {
         <Route path="contact" element={<Contact />} />
         <Route path="faq" element={<FAQPageGuest />} />
         <Route path="articles" element={<Articles />} />
-        <Route path="articles/:id" element={<DetailArticles />} />
+        <Route path="articles/:id" element={<DetailArticle />} />
         <Route path="detail/:id" element={<DetailPage />} />
         <Route path="advanced" element={<AdvancedSearch />} />
       </Route>

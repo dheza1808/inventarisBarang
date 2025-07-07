@@ -20,7 +20,7 @@ export default function Articles() {
           {articles.map((item) => (
             <div
               key={item.id}
-              onClick={() => navigate(`/guest/articles/${item.id}`)}
+              onClick={() => navigate(`/articles/${item.id}`)}
               className="cursor-pointer bg-white rounded-xl shadow-md hover:shadow-lg transition overflow-hidden"
             >
               <img
