@@ -27,9 +27,6 @@ const RiwayatTransaksi = lazy(() =>
 const Aset = lazy(() => import("./pages/StaffGudang/Aset"));
 const Supplier = lazy(() => import("./pages/StaffGudang/Supplier"));
 const Customer = lazy(() => import("./pages/StaffGudang/Customer"));
-const LaporanStok = lazy(() => import("./pages/StaffGudang/LaporanStok"));
-const LaporanMasuk = lazy(() => import("./pages/StaffGudang/LaporanMasuk"));
-const LaporanKeluar = lazy(() => import("./pages/StaffGudang/LaporanKeluar"));
 const Pengguna = lazy(() => import("./pages/StaffGudang/Pengguna"));
 const FaqPage = lazy(() => import("./pages/StaffGudang/FaqPage"));
 
@@ -85,9 +82,6 @@ function AppRoutes() {
           <Route path="aset" element={<Aset />} />
           <Route path="supplier" element={<Supplier />} />
           <Route path="customer" element={<Customer />} />
-          <Route path="laporan/stok" element={<LaporanStok />} />
-          <Route path="laporan/masuk" element={<LaporanMasuk />} />
-          <Route path="laporan/keluar" element={<LaporanKeluar />} />
           <Route path="pengguna" element={<Pengguna />} />
           <Route path="faq" element={<FaqPage />} />
         </Route>
