@@ -4,7 +4,6 @@ import {
   FaHome,
   FaBoxes,
   FaArrowCircleDown,
-  FaArrowCircleUp,
   FaFileAlt,
   FaUserCog,
   FaUsers,
@@ -12,6 +11,7 @@ import {
   FaBell,
   FaClipboardList,
   FaSignOutAlt,
+  FaClipboardCheck, // <- Tambahan ikon untuk peminjaman
 } from "react-icons/fa";
 
 export default function Sidebar() {
@@ -108,7 +108,7 @@ export default function Sidebar() {
             }`
           }
         >
-          <FaArrowCircleUp /> Persetujuan Peminjaman
+          <FaClipboardCheck /> Persetujuan Peminjaman
         </NavLink>
 
         <p className="text-xs text-indigo-300 uppercase font-semibold mt-2">
@@ -127,64 +127,7 @@ export default function Sidebar() {
           <FaClipboardList /> Riwayat Transaksi
         </NavLink>
 
-        <p className="text-xs text-indigo-300 uppercase font-semibold mt-2">
-          Laporan
-        </p>
-        <button
-          onClick={() => setOpenLaporan(!openLaporan)}
-          className="flex items-center justify-between p-2 rounded-md text-sm hover:bg-indigo-200 hover:text-indigo-800 w-full"
-        >
-          <div className="flex items-center gap-3">
-            <FaFileAlt /> Laporan
-          </div>
-          <span
-            className={`transform transition-transform ${
-              openLaporan ? "rotate-180" : ""
-            }`}
-          >
-            ▼
-          </span>
-        </button>
-        {openLaporan && (
-          <div className="ml-6 flex flex-col gap-2">
-            <NavLink
-              to="/staffgudang/laporan/stok"
-              className={({ isActive }) =>
-                `${linkClass} ${
-                  isActive
-                    ? "bg-indigo-100 text-indigo-800 font-semibold"
-                    : "text-white"
-                }`
-              }
-            >
-              Stok
-            </NavLink>
-            <NavLink
-              to="/staffgudang/laporan/masuk"
-              className={({ isActive }) =>
-                `${linkClass} ${
-                  isActive
-                    ? "bg-indigo-100 text-indigo-800 font-semibold"
-                    : "text-white"
-                }`
-              }
-            >
-              Barang Masuk
-            </NavLink>
-            <NavLink
-              to="/staffgudang/laporan/keluar"
-              className={({ isActive }) =>
-                `${linkClass} ${
-                  isActive
-                    ? "bg-indigo-100 text-indigo-800 font-semibold"
-                    : "text-white"
-                }`
-              }
-            >
-              Barang Keluar
-            </NavLink>
-          </div>
-        )}
+
 
         <p className="text-xs text-indigo-300 uppercase font-semibold mt-2">
           Notifikasi

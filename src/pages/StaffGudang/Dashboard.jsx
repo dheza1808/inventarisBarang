@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
-import { FaArrowDown, FaArrowUp, FaHistory } from "react-icons/fa";
+import { FaArrowDown, FaUserCheck, FaHistory } from "react-icons/fa";
 import { Line } from "react-chartjs-2";
-import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement } from "chart.js";
+import {
+  Chart as ChartJS,
+  LineElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+} from "chart.js";
 import artikelPopuler from "../../data/artikelPopuler.json";
 import statistikPengguna from "../../data/statistikPengguna.json";
 
@@ -9,19 +15,19 @@ ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement);
 
 export default function Dashboard() {
   const [barangMasuk, setBarangMasuk] = useState([]);
-  const [barangKeluar, setBarangKeluar] = useState([]);
+  const [peminjaman, setPeminjaman] = useState([]);
   const [riwayat, setRiwayat] = useState([]);
 
   useEffect(() => {
     const masuk = JSON.parse(localStorage.getItem("barang_masuk")) || [];
-    const keluar = JSON.parse(localStorage.getItem("barang_keluar")) || [];
+    const pinjam = JSON.parse(localStorage.getItem("peminjaman_guest")) || [];
 
     setBarangMasuk(masuk);
-    setBarangKeluar(keluar);
+    setPeminjaman(pinjam);
 
     const combined = [
       ...masuk.map((item) => ({ ...item, tipe: "Masuk" })),
-      ...keluar.map((item) => ({ ...item, tipe: "Keluar" })),
+      ...pinjam.map((item) => ({ ...item, tipe: "Peminjaman" })),
     ];
 
     combined.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
@@ -75,11 +81,11 @@ export default function Dashboard() {
           textColor="text-green-800"
         />
         <StatCard
-          icon={<FaArrowUp className="text-red-600 text-3xl" />}
-          label="Total Barang Keluar"
-          value={barangKeluar.length}
-          bgColor="bg-red-100"
-          textColor="text-red-800"
+          icon={<FaUserCheck className="text-purple-600 text-3xl" />}
+          label="Total Peminjaman"
+          value={peminjaman.length}
+          bgColor="bg-purple-100"
+          textColor="text-purple-800"
         />
         <StatCard
           icon={<FaHistory className="text-blue-600 text-3xl" />}
@@ -148,11 +154,11 @@ export default function Dashboard() {
                     className="bg-gray-50 hover:bg-gray-100 transition-all duration-200 shadow-sm rounded"
                   >
                     <td className="py-2 px-3 rounded-l">{item.nama}</td>
-                    <td className="py-2 px-3">{item.jumlah}</td>
+                    <td className="py-2 px-3">{item.jumlah || '-'}</td>
                     <td className="py-2 px-3">
                       <span
                         className={`px-2 py-1 rounded text-white text-xs font-semibold ${
-                          item.tipe === "Masuk" ? "bg-green-600" : "bg-red-600"
+                          item.tipe === "Masuk" ? "bg-green-600" : "bg-purple-600"
                         }`}
                       >
                         {item.tipe}

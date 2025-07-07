@@ -20,11 +20,22 @@ export default function DetailPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Peminjaman diajukan:', {
-      barang: data.nama,
+
+    const peminjamanBaru = {
+      id: Date.now(), // unique id
+      nama: data.nama,
       tanggalPinjam,
-      tanggalKembali
-    });
+      tanggalKembali,
+      status: "Diajukan", // default status
+      created_at: new Date().toISOString()
+    };
+
+    // Ambil data lama
+    const dataSebelumnya = JSON.parse(localStorage.getItem("peminjaman_guest")) || [];
+
+    // Simpan kembali dengan data baru
+    localStorage.setItem("peminjaman_guest", JSON.stringify([peminjamanBaru, ...dataSebelumnya]));
+
     setSubmitted(true);
   };
 
