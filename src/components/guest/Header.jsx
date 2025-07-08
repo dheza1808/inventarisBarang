@@ -18,11 +18,11 @@ export default function Header() {
 
         {/* Menu di tengah */}
         <nav className="flex-1 flex justify-center space-x-10 text-lg font-semibold tracking-wide">
-          <Link to="/" className="hover:underline text-white">HOME</Link>
-          <Link to="/about" className="hover:underline text-white">ABOUT</Link>
-          <Link to="/faq" className="hover:underline text-white">FAQ</Link>
-          <Link to="/contact" className="hover:underline text-white">CONTACT</Link>
-          <Link to="/articles" className="hover:underline text-white">ARTICLE</Link>
+          <Link to="/" className="hover:underline !text-white">HOME</Link>
+          <Link to="/about" className="hover:underline !text-white">ABOUT</Link>
+          <Link to="/faq" className="hover:underline !text-white">FAQ</Link>
+          <Link to="/contact" className="hover:underline !text-white">CONTACT</Link>
+          <Link to="/articles" className="hover:underline !text-white">ARTICLE</Link>
         </nav>
 
         {/* Tombol Login di kanan */}

@@ -2,11 +2,7 @@ import { FaUserCircle, FaEnvelope, FaUserEdit, FaUserTag } from "react-icons/fa"
 import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
-  const user = {
-    nama: "Admin Gudang",
-    email: "admin@example.com",
-    role: "Staff Gudang",
-  };
+  const user = JSON.parse(localStorage.getItem("user"))
 
   const navigate = useNavigate();
 
@@ -35,14 +31,6 @@ export default function Profile() {
             <div>
               <p className="text-sm text-gray-500">Email</p>
               <p className="font-medium">{user.email}</p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <FaUserTag className="text-indigo-500" />
-            <div>
-              <p className="text-sm text-gray-500">Peran</p>
-              <p className="font-medium">{user.role}</p>
             </div>
           </div>
         </div>

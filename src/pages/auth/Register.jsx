@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { FaUserPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { usersAPI } from "../../services/user";
+import bcrypt from 'bcryptjs';
 
 export default function Register() {
   const [nama, setNama] = useState("");
@@ -8,13 +10,27 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate(); // Untuk navigasi ke halaman login
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-    console.log("Data:", { nama, email, password });
-    alert("Registrasi berhasil! (simulasi)");
+    try {
 
-    // Arahkan ke halaman login
-    navigate("/");
+    const salt = bcrypt.genSaltSync(10);
+    const hashedPassword = bcrypt.hashSync(password, salt);
+
+      const data = {
+        nama,
+        email,
+        password: hashedPassword,
+      };
+
+      await usersAPI.registerUser(data);
+
+      alert("Pendaftaran berhasil! Silakan masuk.");
+      navigate("/login");
+    } catch (error) {
+      console.error("Error saat mendaftar:", error);
+      alert("Terjadi kesalahan saat mendaftar. Silakan coba lagi.");
+    }
   };
 
   return (
@@ -29,7 +45,7 @@ export default function Register() {
             <label className="block text-gray-700 mb-1 font-medium">Nama Lengkap</label>
             <input
               type="text"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
               value={nama}
               onChange={(e) => setNama(e.target.value)}
               required
@@ -39,7 +55,7 @@ export default function Register() {
             <label className="block text-gray-700 mb-1 font-medium">Email</label>
             <input
               type="email"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -49,7 +65,7 @@ export default function Register() {
             <label className="block text-gray-700 mb-1 font-medium">Password</label>
             <input
               type="password"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required

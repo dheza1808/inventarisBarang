@@ -58,18 +58,6 @@ export default function Sidebar() {
         >
           <FaBoxes /> Data Aset
         </NavLink>
-        <NavLink
-          to="/staffgudang/customer"
-          className={({ isActive }) =>
-            `${linkClass} ${
-              isActive
-                ? "bg-indigo-100 text-indigo-800 font-semibold"
-                : "text-white"
-            }`
-          }
-        >
-          <FaUsers /> Customer
-        </NavLink>
 
         <p className="text-xs text-indigo-300 uppercase font-semibold mt-2">
           Transaksi
@@ -115,39 +103,6 @@ export default function Sidebar() {
           <FaClipboardList /> Riwayat Transaksi
         </NavLink>
 
-
-
-        <p className="text-xs text-indigo-300 uppercase font-semibold mt-2">
-          Notifikasi
-        </p>
-        <NavLink
-          to="/auth/notifikasi"
-          className={({ isActive }) =>
-            `${linkClass} ${
-              isActive
-                ? "bg-indigo-100 text-indigo-800 font-semibold"
-                : "text-white"
-            }`
-          }
-        >
-          <FaBell /> Notifikasi
-        </NavLink>
-
-        <p className="text-xs text-indigo-300 uppercase font-semibold mt-2">
-          Pengaturan
-        </p>
-        <NavLink
-          to="/staffgudang/pengguna"
-          className={({ isActive }) =>
-            `${linkClass} ${
-              isActive
-                ? "bg-indigo-100 text-indigo-800 font-semibold"
-                : "text-white"
-            }`
-          }
-        >
-          <FaUserCog /> Manajemen Pengguna
-        </NavLink>
 
         <NavLink
           to="/logout"

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { barangAPI } from '../../services/barang';
 
 export default function AdvancedSearch() {
   const [inventoryData, setInventoryData] = useState([]);
@@ -10,16 +11,22 @@ export default function AdvancedSearch() {
   const [results, setResults] = useState([]);
 
   useEffect(() => {
-    fetch('/data/inventory.json')
-      .then(res => res.json())
-      .then(data => {
-        setInventoryData(data);
-        setResults(data);
-      })
-      .catch(err => console.error('Gagal fetch data:', err));
+    const fetchBarang = async () => {
+      try {
+        const response = await barangAPI.getAllBarang();
+        
+        setInventoryData(response);
+      } catch (error) {
+        console.error('Error fetching inventory data:', error);
+      }
+    };
+
+    fetchBarang();
   }, []);
 
   useEffect(() => {
+    console.log('inventoryData updated:', inventoryData);
+    
     const filtered = inventoryData.filter(item => {
       return (
         (!query || item.nama.toLowerCase().includes(query.toLowerCase())) &&
@@ -43,13 +50,13 @@ export default function AdvancedSearch() {
           <input
             type="text"
             placeholder="Cari nama barang..."
-            className="px-4 py-2 rounded-md bg-white/20 text-white placeholder:text-gray-300 w-[200px] focus:outline-none focus:ring-2 focus:ring-white/30"
+            className="px-4 py-2 rounded-md bg-white/20  ext-white placeholder:text-gray-300 w-[200px] focus:outline-none focus:ring-2 focus:ring-white/30"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
 
           <select
-            className="px-4 py-2 rounded-md bg-white/20 text-white focus:outline-none w-[200px]"
+            className="px-4 py-2 rounded-md bg- hite/20 text-white focus:outline-none w-[200px]"
             value={kategori}
             onChange={(e) => setKategori(e.target.value)}
           >
@@ -60,7 +67,7 @@ export default function AdvancedSearch() {
           </select>
 
           <select
-            className="px-4 py-2 rounded-md bg-white/20 text-white focus:outline-none w-[200px]"
+            className="px-4 py-2 round d-md bg-white/20 text-white focus:outline-none w-[200px]"
             value={lokasi}
             onChange={(e) => setLokasi(e.target.value)}
           >
@@ -71,7 +78,7 @@ export default function AdvancedSearch() {
           </select>
 
           <select
-            className="px-4 py-2 rounded-md bg-white/20 text-white focus:outline-none w-[200px]"
+            className="px-4 p -2 rounded-md bg-white/20 text-white focus:outline-none w-[200px]"
             value={kondisi}
             onChange={(e) => setKondisi(e.target.value)}
           >
@@ -89,7 +96,7 @@ export default function AdvancedSearch() {
           <Link
             to={`/detail/${item.id}`}
             key={item.id}
-            className="bg-white/10 w-[200px] rounded-xl p-4 text-white hover:bg-white/20 transition-all shadow-md backdrop-blur cursor-pointer no-underline"
+            className="b -white/10 w-[200px] rounded-xl p-4 text-white hover:bg-white/20 transition-all shadow-md backdrop-blur cursor-pointer no-underline"
           >
             <div className="bg-white rounded-md h-[100px] flex items-center justify-center overflow-hidden mb-3">
               <img

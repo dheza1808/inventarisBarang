@@ -1,15 +1,13 @@
 import { useState } from "react";
 import { FaSave, FaArrowLeft, FaUserCircle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { usersAPI } from "../../services/user";
 
 export default function EditProfile() {
   const navigate = useNavigate();
 
-  const [user, setUser] = useState({
-    nama: "Admin Gudang",
-    email: "admin@example.com",
-    role: "Staff Gudang",
-  });
+  const userData = JSON.parse(localStorage.getItem("user"))
+  const [user, setUser] = useState(userData);
 
   const [avatar, setAvatar] = useState(null);
 
@@ -25,11 +23,25 @@ export default function EditProfile() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Disimpan:", user);
+
+    try {
+      await usersAPI.editUser(user.id, {
+        id: user.id,
+        nama: user.nama,
+        email: user.email
+      });
+
+      localStorage.setItem("user", JSON.stringify( user ));
+
+    } catch (error) {
+      console.error("Error saat memperbarui profil:", error);
+      return alert("❌ Gagal memperbarui profil. Silakan coba lagi.");
+    }
+
     alert("Profil berhasil diperbarui!");
-    navigate("/settings/profile");
+    navigate("/profile");
   };
 
   return (
@@ -40,7 +52,7 @@ export default function EditProfile() {
             <FaUserCircle /> Edit Profil
           </h1>
           <button
-            onClick={() => navigate("/settings/profile")}
+            onClick={() => navigate("/profile")}
             className="text-sm text-gray-500 hover:text-indigo-600 flex items-center gap-1"
           >
             <FaArrowLeft /> Kembali
@@ -81,17 +93,6 @@ export default function EditProfile() {
               onChange={handleChange}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
               required
-            />
-          </div>
-
-          <div>
-            <label className="text-sm font-medium text-gray-700 block mb-1">Role</label>
-            <input
-              type="text"
-              name="role"
-              value={user.role}
-              readOnly
-              className="w-full px-4 py-2 border bg-gray-100 rounded-lg text-gray-500"
             />
           </div>
 

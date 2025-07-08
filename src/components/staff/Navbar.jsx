@@ -6,13 +6,38 @@ import {
   FaUserPlus,
   FaQuestionCircle,
 } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [showAccountMenu, setShowAccountMenu] = useState(false);
   const [showSettingsMenu, setShowSettingsMenu] = useState(false);
   const [showLoginMenu, setShowLoginMenu] = useState(false);
+
+  const settingsRef = useRef();
+  const accountRef = useRef();
+  const loginRef = useRef();
+
+  // Klik luar untuk menutup semua dropdown
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        settingsRef.current &&
+        !settingsRef.current.contains(event.target) &&
+        accountRef.current &&
+        !accountRef.current.contains(event.target) &&
+        loginRef.current &&
+        !loginRef.current.contains(event.target)
+      ) {
+        setShowSettingsMenu(false);
+        setShowAccountMenu(false);
+        setShowLoginMenu(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <header className="bg-gradient-to-r from-purple-800 to-blue-800 text-white px-6 py-3 shadow-md flex items-center justify-between w-full z-50">
@@ -26,7 +51,7 @@ export default function Navbar() {
         </Link>
 
         {/* Settings Dropdown */}
-        <div className="relative">
+        <div className="relative" ref={settingsRef}>
           <button
             onClick={() => {
               setShowSettingsMenu(!showSettingsMenu);
@@ -38,7 +63,7 @@ export default function Navbar() {
             <FaCog /> <span>Pengaturan</span>
           </button>
           {showSettingsMenu && (
-            <div className="absolute right-0 mt-2 w-48 bg-white text-gray-800 rounded shadow z-50">
+            <div className="absolute right-0 mt-2 w-52 bg-white text-gray-800 rounded-md shadow-lg overflow-hidden z-50">
               <Link
                 to="/settings"
                 className="block px-4 py-2 hover:bg-gray-100 text-sm"
@@ -56,7 +81,7 @@ export default function Navbar() {
         </div>
 
         {/* Account Dropdown */}
-        <div className="relative">
+        <div className="relative" ref={accountRef}>
           <button
             onClick={() => {
               setShowAccountMenu(!showAccountMenu);
@@ -68,7 +93,7 @@ export default function Navbar() {
             <FaUserCircle /> <span>Akun</span>
           </button>
           {showAccountMenu && (
-            <div className="absolute right-0 mt-2 w-44 bg-white text-gray-800 rounded shadow z-50">
+            <div className="absolute right-0 mt-2 w-44 bg-white text-gray-800 rounded-md shadow-lg overflow-hidden z-50">
               <Link
                 to="/profile"
                 className="block px-4 py-2 hover:bg-gray-100 text-sm"
@@ -85,8 +110,8 @@ export default function Navbar() {
           )}
         </div>
 
-        {/* Login Dropdown */}
-        {/* <div className="relative">
+        {/* Login Dropdown (Opsional - jika ingin diaktifkan) */}
+        {/* <div className="relative" ref={loginRef}>
           <button
             onClick={() => {
               setShowLoginMenu(!showLoginMenu);
@@ -98,7 +123,7 @@ export default function Navbar() {
             <FaSignInAlt /> <span>Login</span>
           </button>
           {showLoginMenu && (
-            <div className="absolute right-0 mt-2 w-52 bg-white text-gray-800 rounded shadow z-50">
+            <div className="absolute right-0 mt-2 w-52 bg-white text-gray-800 rounded-md shadow-lg overflow-hidden z-50">
               <Link to="/" className="block px-4 py-2 hover:bg-gray-100 text-sm">
                 <FaSignInAlt className="inline mr-2" /> Login Modal
               </Link>

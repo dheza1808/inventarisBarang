@@ -24,7 +24,7 @@ const DetailArticle = lazy(() => import("./pages/Guest/DetailArticle"));
 const DetailPage = lazy(() => import("./pages/Guest/DetailPage"));
 const AdvancedSearch = lazy(() => import("./pages/Guest/AdvancedSearch"));
 
-// Staff Pages (Protected)
+// Staff Pages (inside layout)
 const Dashboard = lazy(() => import("./pages/StaffGudang/Dashboard"));
 const BarangMasuk = lazy(() => import("./pages/StaffGudang/BarangMasuk"));
 const PersetujuanPeminjaman = lazy(() => import("./pages/StaffGudang/PersetujuanPeminjaman"));
@@ -34,26 +34,28 @@ const Customer = lazy(() => import("./pages/StaffGudang/Customer"));
 const Pengguna = lazy(() => import("./pages/StaffGudang/Pengguna"));
 const FaqPageStaff = lazy(() => import("./pages/StaffGudang/FaqPage"));
 
+
 // Auth Pages
 const Login = lazy(() => import("./pages/auth/Login"));
 const Register = lazy(() => import("./pages/auth/Register"));
 const ForgotPassword = lazy(() => import("./pages/auth/ForgotPassword"));
 const Profile = lazy(() => import("./pages/auth/Profile"));
 const EditProfile = lazy(() => import("./pages/auth/EditProfile"));
-const Settings = lazy(() => import("./pages/auth/Settings"));
 const Logout = lazy(() => import("./pages/auth/Logout"));
 const Notifikasi = lazy(() => import("./pages/auth/Notifikasi"));
+const Settings = lazy(() => import("./pages/auth/Settings"));
+
 
 // Not Found
 const NotFound = lazy(() => import("./pages/NotFound"));
 
-// Fallback loading
+// Fallback Loading
 const Loading = () => <div className="text-center mt-10 text-lg">Loading...</div>;
 
 function AppRoutes() {
   return (
     <Routes>
-      {/* ======== GUEST ROUTES (default) ======== */}
+      {/* ========== GUEST ROUTES ========== */}
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Front />} />
         <Route path="about" element={<About />} />
@@ -65,7 +67,7 @@ function AppRoutes() {
         <Route path="advanced" element={<AdvancedSearch />} />
       </Route>
 
-      {/* ======== STAFF ROUTES (Protected) ======== */}
+      {/* ========== STAFF ROUTES (inside layout) ========== */}
       <Route
         path="/staffgudang"
         element={
@@ -84,17 +86,17 @@ function AppRoutes() {
         <Route path="faq" element={<FaqPageStaff />} />
       </Route>
 
-      {/* ======== AUTH ROUTES ======== */}
+      {/* ========== AUTH ROUTES ========== */}
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/forgot" element={<ForgotPassword />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/editprofile" element={<EditProfile />} />
-      <Route path="/settings" element={<Settings />} />
       <Route path="/logout" element={<Logout />} />
       <Route path="/notifikasi" element={<Notifikasi />} />
+      <Route path="/settings" element={<Settings />} />
 
-      {/* ======== NOT FOUND ROUTE ======== */}
+      {/* ========== 404 ROUTE ========== */}
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

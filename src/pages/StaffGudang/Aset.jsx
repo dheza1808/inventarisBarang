@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import EditAsetModal from "../../components/staff/EditAsetModal";
+import { barangAPI } from "../../services/barang";
 
 export default function Aset() {
   const [asetList, setAsetList] = useState([]);
@@ -8,19 +9,28 @@ export default function Aset() {
   const [editingAset, setEditingAset] = useState(null);
 
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("data_aset")) || [];
-    setAsetList(data);
+    const fetchAsetData = async () => {
+      try {
+        const response = await barangAPI.getAllBarang();
+
+        setAsetList(response);
+      } catch (error) {
+        console.error("Error fetching aset data:", error);
+      }
+    }
+    fetchAsetData();
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem("barang_masuk", JSON.stringify(asetList));
-  }, [asetList]);
-
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
     const confirmDelete = confirm("Yakin ingin menghapus aset ini?");
     if (confirmDelete) {
-      const updated = asetList.filter((item) => item.id !== id);
-      setAsetList(updated);
+      try {
+        await barangAPI.deleteBarang(id);
+        setAsetList(asetList.filter((item) => item.id !== id));
+        alert("Aset berhasil dihapus.");
+      } catch (error) {
+        console.error("Error deleting aset:", error);
+      }
     }
   };
 
@@ -28,12 +38,15 @@ export default function Aset() {
     setEditingAset(item);
   };
 
-  const handleSaveEdit = (updatedItem) => {
-    const updated = asetList.map((item) =>
-      item.id === updatedItem.id ? updatedItem : item
-    );
-    setAsetList(updated);
-    setEditingAset(null);
+  const handleSaveEdit = async (updatedItem) => {
+    try {
+      await barangAPI.updateBarang(updatedItem.id, updatedItem);
+      setAsetList(asetList.map((item) => (item.id === updatedItem.id ? updatedItem : item)));
+      setEditingAset(null);
+      alert("Aset berhasil diperbarui.");
+    } catch (error) {
+      console.error("Error updating aset:", error);
+    }
   };
 
   const filteredAset = asetList.filter(
@@ -87,8 +100,8 @@ export default function Aset() {
           <thead className="text-xs uppercase bg-indigo-100 text-indigo-700">
             <tr>
               <th className="px-4 py-2 border">Nama Barang</th>
+              <th className="px-4 py-2 border">Kategori</th>
               <th className="px-4 py-2 border">Jumlah</th>
-              <th className="px-4 py-2 border">Supplier</th>
               <th className="px-4 py-2 border">Lokasi</th>
               <th className="px-4 py-2 border">Kondisi</th>
               <th className="px-4 py-2 border">Penanggung Jawab</th>
@@ -100,11 +113,11 @@ export default function Aset() {
               filteredAset.map((item) => (
                 <tr key={item.id} className="bg-white hover:bg-indigo-50">
                   <td className="px-4 py-2 border font-medium">{item.nama}</td>
+                  <td className="px-4 py-2 border">{item.kategori}</td>
                   <td className="px-4 py-2 border">{item.jumlah}</td>
-                  <td className="px-4 py-2 border">{item.supplier}</td>
                   <td className="px-4 py-2 border">{item.lokasi}</td>
                   <td className="px-4 py-2 border">{item.kondisi}</td>
-                  <td className="px-4 py-2 border">{item.penanggungJawab}</td>
+                  <td className="px-4 py-2 border">{item.penanggung_jawab}</td>
                   <td className="px-4 py-2 border text-center">
                     <button
                       onClick={() => handleEdit(item)}

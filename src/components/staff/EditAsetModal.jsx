@@ -24,48 +24,48 @@ export default function EditAsetModal({ aset, onClose, onSave }) {
         <h2 className="text-lg font-bold mb-4 text-indigo-700">Edit Aset</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="text-sm font-medium">Nama Aset</label>
+            <label className="text-sm font-medium text-gray-700">Nama Aset</label>
             <input
               type="text"
               name="nama"
               value={formData.nama}
               onChange={handleChange}
-              className="w-full border px-3 py-2 rounded text-sm"
+              className="w-full border px-3 py-2 rounded text-sm text-gray-700"
               required
             />
           </div>
 
           <div>
-            <label className="text-sm font-medium">Jumlah</label>
+            <label className="text-sm font-medium text-gray-700">Kategori</label>
+            <input
+              type="text"
+              name="kategori"
+              value={formData.kategori}
+              onChange={handleChange}
+              className="w-full border px-3 py-2 rounded text-sm text-gray-700"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="text-sm font-medium text-gray-700">Jumlah</label>
             <input
               type="number"
               name="jumlah"
               value={formData.jumlah}
               onChange={handleChange}
-              className="w-full border px-3 py-2 rounded text-sm"
+              className="w-full border px-3 py-2 rounded text-sm text-gray-700"
               required
             />
           </div>
 
           <div>
-            <label className="text-sm font-medium">Supplier</label>
-            <input
-              type="text"
-              name="supplier"
-              value={formData.supplier}
-              onChange={handleChange}
-              className="w-full border px-3 py-2 rounded text-sm"
-              required
-            />
-          </div>
-
-          <div>
-            <label className="text-sm font-medium">Lokasi</label>
+            <label className="text-sm font-medium text-gray-700">Lokasi</label>
             <select
               name="lokasi"
               value={formData.lokasi}
               onChange={handleChange}
-              className="w-full border px-3 py-2 rounded text-sm"
+              className="w-full border px-3 py-2 rounded text-sm text-gray-700"
             >
               <option value="Gudang A">Gudang A</option>
               <option value="Gudang B">Gudang B</option>
@@ -76,12 +76,12 @@ export default function EditAsetModal({ aset, onClose, onSave }) {
           </div>
 
           <div>
-            <label className="text-sm font-medium">Kondisi</label>
+            <label className="text-sm font-medium text-gray-700">Kondisi</label>
             <select
               name="kondisi"
               value={formData.kondisi}
               onChange={handleChange}
-              className="w-full border px-3 py-2 rounded text-sm"
+              className="w-full border px-3 py-2 rounded text-sm text-gray-700"
             >
               <option value="Baik">Baik</option>
               <option value="Rusak">Rusak</option>
@@ -90,14 +90,36 @@ export default function EditAsetModal({ aset, onClose, onSave }) {
           </div>
 
           <div>
-            <label className="text-sm font-medium">Penanggung Jawab</label>
+            <label className="text-sm font-medium text-gray-700">Penanggung Jawab</label>
             <input
               type="text"
               name="penanggungJawab"
-              value={formData.penanggungJawab}
+              value={formData.penanggung_jawab}
               onChange={handleChange}
-              className="w-full border px-3 py-2 rounded text-sm"
+              className="w-full border px-3 py-2 rounded text-sm text-gray-700"
               required
+            />
+          </div>
+
+          <div>
+            <label className="text-sm font-medium text-gray-700">URL Image</label>
+            <input
+              type="text"
+              name="penanggungJawab"
+              value={formData.image}
+              onChange={handleChange}
+              className="w-full border px-3 py-2 rounded text-sm text-gray-700"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="text-sm font-medium text-gray-700">Deskripsi</label>
+            <textarea
+              name="deskripsi"
+              value={formData.deskripsi}
+              onChange={handleChange}
+              className="w-full border px-3 py-2 rounded text-sm text-gray-700"
             />
           </div>
 

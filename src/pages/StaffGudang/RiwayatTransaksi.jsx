@@ -1,19 +1,33 @@
 import { useEffect, useState } from "react";
+import { barangAPI } from "../../services/barang";
+import { peminjamanAPI } from "../../services/peminjaman";
 
 export default function RiwayatTransaksi() {
   const [barangMasuk, setBarangMasuk] = useState([]);
   const [peminjamanGuest, setPeminjamanGuest] = useState([]);
 
   useEffect(() => {
-    const masuk = JSON.parse(localStorage.getItem("barang_masuk")) || [];
-    const guest = JSON.parse(localStorage.getItem("peminjaman_guest")) || [];
+    const fetchBarangMasuk = async () => {
+      try {
+        const response = await barangAPI.getAllBarang();
+        
+        setBarangMasuk(response);
+      } catch (error) {
+        console.error("Error fetching barang masuk:", error);
+      }
+    }
 
-    // Urutkan berdasarkan waktu terbaru
-    masuk.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-    guest.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+    const fetchPeminjamanGuest = async () => {
+      try {
+        const response = await peminjamanAPI.getAllPeminjaman();
+        setPeminjamanGuest(response);
+      } catch (error) {
+        console.error("Error fetching peminjaman guest:", error);
+      }
+    }
 
-    setBarangMasuk(masuk);
-    setPeminjamanGuest(guest);
+    fetchBarangMasuk();
+    fetchPeminjamanGuest();
   }, []);
 
   const formatDate = (iso) => {
@@ -41,8 +55,8 @@ export default function RiwayatTransaksi() {
                 <tr>
                   <th className="py-3 px-4 text-left">Tanggal</th>
                   <th className="py-3 px-4 text-left">Nama Barang</th>
+                  <th className="py-3 px-4 text-left">Kategori</th>
                   <th className="py-3 px-4 text-left">Jumlah</th>
-                  <th className="py-3 px-4 text-left">Supplier</th>
                 </tr>
               </thead>
               <tbody>
@@ -50,8 +64,8 @@ export default function RiwayatTransaksi() {
                   <tr key={item.id} className="bg-white hover:bg-blue-100">
                     <td className="py-2 px-4">{formatDate(item.created_at)}</td>
                     <td className="py-2 px-4">{item.nama}</td>
+                    <td className="py-2 px-4">{item.kategori}</td>
                     <td className="py-2 px-4">{item.jumlah}</td>
-                    <td className="py-2 px-4">{item.supplier}</td>
                   </tr>
                 ))}
               </tbody>
@@ -74,6 +88,7 @@ export default function RiwayatTransaksi() {
               <thead className="bg-purple-200 text-purple-900">
                 <tr>
                   <th className="py-3 px-4 text-left">Tanggal</th>
+                  <th className="py-3 px-4 text-left">Nama Peminjam</th>
                   <th className="py-3 px-4 text-left">Nama Barang</th>
                   <th className="py-3 px-4 text-left">Tanggal Pinjam</th>
                   <th className="py-3 px-4 text-left">Tanggal Kembali</th>
@@ -84,9 +99,10 @@ export default function RiwayatTransaksi() {
                 {peminjamanGuest.map((item) => (
                   <tr key={item.id} className="bg-white hover:bg-purple-100">
                     <td className="py-2 px-4">{formatDate(item.created_at)}</td>
-                    <td className="py-2 px-4">{item.nama}</td>
-                    <td className="py-2 px-4">{item.tanggalPinjam}</td>
-                    <td className="py-2 px-4">{item.tanggalKembali}</td>
+                    <td className="py-2 px-4">{item.nama_peminjam}</td>
+                    <td className="py-2 px-4">{item.barang.nama}</td>
+                    <td className="py-2 px-4">{item.tanggal_pinjam}</td>
+                    <td className="py-2 px-4">{item.tanggal_kembali}</td>
                     <td className="py-2 px-4">{item.status}</td>
                   </tr>
                 ))}

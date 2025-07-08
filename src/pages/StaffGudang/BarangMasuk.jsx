@@ -1,14 +1,17 @@
 // BarangMasuk.jsx
 import { useState } from "react";
+import { barangAPI } from "../../services/barang";
 
 export default function BarangMasuk() {
   const [form, setForm] = useState({
     nama: "",
+    kategori: "",
     jumlah: "",
-    supplier: "",
     lokasi: "",
     kondisi: "",
     penanggungJawab: "",
+    image: "",
+    deskripsi: "",
   });
 
   const [notif, setNotif] = useState("");
@@ -17,36 +20,43 @@ export default function BarangMasuk() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const { nama, jumlah, supplier, lokasi, kondisi, penanggungJawab } = form;
+    
+    const { nama, kategori, jumlah, lokasi, kondisi, penanggungJawab, image, deskripsi } = form;
 
-    if (!nama || !jumlah || !supplier || !lokasi || !kondisi || !penanggungJawab) {
+    if (!nama || !kategori || !jumlah || !lokasi || !kondisi || !penanggungJawab || !image || !deskripsi) {
       return setNotif("⚠️ Semua field wajib diisi.");
     }
 
-    const newEntry = {
-      id: Date.now(),
-      ...form,
-      jumlah: Number(jumlah),
-      created_at: new Date().toISOString(),
-    };
+    try {
+      await barangAPI.tambahBarang({
+        nama,
+        kategori,
+        jumlah: Number(jumlah),
+        lokasi,
+        kondisi,
+        penanggung_jawab: penanggungJawab,
+        image, 
+        deskripsi,
+      });
 
-    const existingMasuk = JSON.parse(localStorage.getItem("barang_masuk")) || [];
-    localStorage.setItem("barang_masuk", JSON.stringify([newEntry, ...existingMasuk]));
-
-    const existingAset = JSON.parse(localStorage.getItem("data_aset")) || [];
-    localStorage.setItem("data_aset", JSON.stringify([...existingAset, newEntry]));
-
-    setForm({
-      nama: "",
-      jumlah: "",
-      supplier: "",
-      lokasi: "",
-      kondisi: "",
-      penanggungJawab: "",
-    });
-    setNotif("✅ Data aset berhasil ditambahkan ke Barang Masuk dan Aset.");
+      setForm({
+        nama: "",
+        kategori: "",
+        jumlah: "",
+        supplier: "",
+        lokasi: "",
+        kondisi: "",
+        penanggungJawab: "",
+        image: "",
+        deskripsi: "",
+      });
+      setNotif("✅ Data aset berhasil ditambahkan ke Barang Masuk dan Aset.");
+    } catch (error) {
+      console.error("Error saat menyimpan data:", error);
+      return setNotif("❌ Gagal menyimpan data. Silakan coba lagi.");
+    }
   };
 
   return (
@@ -66,39 +76,39 @@ export default function BarangMasuk() {
           placeholder="Nama Barang"
           value={form.nama}
           onChange={handleChange}
-          className="w-full px-4 py-2 border rounded"
-        />
+          className="w-full px-4 py-2 border rounded text-gray-700"
+          />
+        <input
+          name="kategori"
+          type="text"
+          placeholder="Kategori"
+          value={form.kategori}
+          onChange={handleChange}
+          className="w-full px-4 py-2 border rounded text-gray-700"
+          />
         <input
           name="jumlah"
           type="number"
           placeholder="Jumlah"
           value={form.jumlah}
           onChange={handleChange}
-          className="w-full px-4 py-2 border rounded"
-        />
-        <input
-          name="supplier"
-          type="text"
-          placeholder="Nama Supplier"
-          value={form.supplier}
-          onChange={handleChange}
-          className="w-full px-4 py-2 border rounded"
-        />
+          className="w-full px-4 py-2 border rounded text-gray-700"
+          />
         <input
           name="penanggungJawab"
           type="text"
           placeholder="Penanggung Jawab"
           value={form.penanggungJawab}
           onChange={handleChange}
-          className="w-full px-4 py-2 border rounded"
-        />
+          className="w-full px-4 py-2 border rounded text-gray-700"
+          />
 
         <select
           name="lokasi"
           value={form.lokasi}
           onChange={handleChange}
-          className="w-full px-4 py-2 border rounded"
-        >
+          className="w-full px-4 py-2 border rounded text-gray-700"
+          >
           <option value="">Pilih Lokasi</option>
           <option value="Gudang A">Gudang A</option>
           <option value="Gudang B">Gudang B</option>
@@ -110,13 +120,31 @@ export default function BarangMasuk() {
           name="kondisi"
           value={form.kondisi}
           onChange={handleChange}
-          className="w-full px-4 py-2 border rounded"
-        >
+          className="w-full px-4 py-2 border rounded text-gray-700"
+          >
           <option value="">Pilih Kondisi</option>
           <option value="Baik">Baik</option>
           <option value="Rusak">Rusak</option>
           <option value="Perlu Perawatan">Perlu Perawatan</option>
         </select>
+
+        <input
+          name="image"
+          type="text"
+          placeholder="URL Gambar Barang"
+          value={form.image}
+          onChange={handleChange}
+          className="w-full px-4 py-2 border rounded text-gray-700"
+          />
+
+        <textarea
+          name="deskripsi"
+          placeholder="Deskripsi Barang"
+          value={form.deskripsi}
+          onChange={handleChange}
+          className="w-full px-4 py-2 border rounded text-gray-700"
+          rows="3"
+        ></textarea>
 
         <button type="submit" className="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700">
           Simpan ke Barang Masuk

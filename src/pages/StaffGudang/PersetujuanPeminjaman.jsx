@@ -1,21 +1,34 @@
 import { useEffect, useState } from "react";
+import { peminjamanAPI } from "../../services/peminjaman";
 
 export default function PersetujuanPeminjaman() {
   const [data, setData] = useState([]);
 
   // Ambil data peminjaman dari localStorage saat pertama kali load
   useEffect(() => {
-    const existing = JSON.parse(localStorage.getItem("peminjaman_guest")) || [];
-    setData(existing);
+    const fetchData = async () => {
+      try {
+        const response = await peminjamanAPI.getPeminjamanMenunggu();
+
+        setData(response);
+      } catch (error) {
+        console.error("Error fetching peminjaman data:", error);
+      }
+    }
+
+    fetchData();
   }, []);
 
   // Fungsi untuk menyetujui atau menolak peminjaman
-  const handleApproval = (id, status) => {
-    const updated = data.map((item) =>
-      item.id === id ? { ...item, status } : item
-    );
-    setData(updated);
-    localStorage.setItem("peminjaman_guest", JSON.stringify(updated));
+  const handleApproval = async (id, status) => {
+    try {
+      await peminjamanAPI.updateStatus(id, status);
+      setData(data.filter((item) => item.id !== id ));
+      alert(`✅ Peminjaman ${status} berhasil!`);
+    } catch (error) {
+      console.error("Error updating peminjaman status:", error);
+      return alert("❌ Gagal memperbarui status peminjaman. Silakan coba lagi.");
+    }
   };
 
   return (
@@ -31,28 +44,28 @@ export default function PersetujuanPeminjaman() {
           <table className="min-w-full table-auto border text-sm">
             <thead className="bg-red-100 text-left">
               <tr>
-                <th className="px-4 py-2 border">Nama Barang</th>
-                <th className="px-4 py-2 border">Tanggal Pinjam</th>
-                <th className="px-4 py-2 border">Tanggal Kembali</th>
-                <th className="px-4 py-2 border">Diajukan Pada</th>
-                <th className="px-4 py-2 border">Status</th>
-                <th className="px-4 py-2 border text-center">Aksi</th>
+                <th className="px-4 py-2 border text-gray-700">Nama Barang</th>
+                <th className="px-4 py-2 border text-gray-700">Tanggal Pinjam</th>
+                <th className="px-4 py-2 border text-gray-700">Tanggal Kembali</th>
+                <th className="px-4 py-2 border text-gray-700">Diajukan Pada</th>
+                <th className="px-4 py-2 border text-gray-700">Status</th>
+                <th className="px-4 py-2 border text-gray-700 text-center">Aksi</th>
               </tr>
             </thead>
             <tbody>
               {data.map((item) => (
                 <tr key={item.id} className="hover:bg-gray-50">
-                  <td className="border px-4 py-2">{item.nama}</td>
-                  <td className="border px-4 py-2">
-                    {item.tanggalPinjam || "-"}
+                  <td className="border text-gray-700 px-4 py-2">{item.barang.nama}</td>
+                  <td className="border text-gray-700 px-4 py-2">
+                    {item.tanggal_pinjam || "-"}
                   </td>
-                  <td className="border px-4 py-2">
-                    {item.tanggalKembali || "-"}
+                  <td className="border text-gray-700 px-4 py-2">
+                    {item.tanggal_kembali || "-"}
                   </td>
-                  <td className="border px-4 py-2">
+                  <td className="border text-gray-700 px-4 py-2">
                     {new Date(item.created_at).toLocaleString()}
                   </td>
-                  <td className="border px-4 py-2">
+                  <td className="border text-gray-700 px-4 py-2">
                     {item.status ? (
                       <span
                         className={`px-2 py-1 text-xs rounded font-semibold ${
@@ -69,7 +82,7 @@ export default function PersetujuanPeminjaman() {
                       <span className="text-gray-500 italic">Menunggu</span>
                     )}
                   </td>
-                  <td className="border px-4 py-2 text-center space-x-2">
+                  <td className="border text-gray-700 px-4 py-2 text-center space-x-2">
                     {item.status !== "disetujui" && (
                       <button
                         onClick={() => handleApproval(item.id, "disetujui")}

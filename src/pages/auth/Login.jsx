@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { usersAPI } from "../../services/user";
+import bcrypt from 'bcryptjs'
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -7,18 +9,24 @@ export default function Login() {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    // Simulasi login - ganti dengan logika backend/API nanti
-    if (email === "admin@example.com" && password === "admin123") {
-      // Simpan data login di localStorage
-      localStorage.setItem("user", JSON.stringify({ email }));
-      
-      setError(null); // hapus error jika sebelumnya salah
-      navigate("/staffgudang"); // ✅ arahkan ke dashboard staff
-    } else {
-      setError("Email atau password salah.");
+    try {
+      const response = await usersAPI.loginUser(email);
+
+      const isPasswordValid = bcrypt.compareSync(password, response[0].password);
+      if (!isPasswordValid) {
+        return setError("Password salah.");
+      }
+
+      alert("Login berhasil! Selamat datang.");
+      navigate("/staffgudang");
+      localStorage.setItem("user", JSON.stringify(response[0]));
+      setError(null);
+    } catch (error) {
+      console.error("Error saat login:", error);
+      setError("Email atau password salah. Silakan coba lagi.");
     }
   };
 
@@ -41,7 +49,7 @@ export default function Login() {
             <label className="block text-gray-700 mb-1 font-medium">Email</label>
             <input
               type="email"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -51,7 +59,7 @@ export default function Login() {
             <label className="block text-gray-700 mb-1 font-medium">Password</label>
             <input
               type="password"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
