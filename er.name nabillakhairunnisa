@@ -1,0 +1,133 @@
+[33mcommit 4c53790c5a17783b41aa49681e43ed1d37a31ee3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: dheza1808 <dhezakhairunnisa01@gmail.com>
+Date:   Tue Jul 8 12:35:34 2025 +0700
+
+    update staff&guest 3
+
+[33mcommit c74df5754ee05186f9794af7387e959b282885fb[m
+Author: dheza1808 <dhezakhairunnisa01@gmail.com>
+Date:   Mon Jul 7 10:26:15 2025 +0700
+
+    update staff&guest
+
+[33mcommit 29951524510de59bc8dacc0220648913d9195cf3[m
+Author: dheza1808 <dhezakhairunnisa01@gmail.com>
+Date:   Mon Jul 7 09:55:22 2025 +0700
+
+    update guest&staff
+
+[33mcommit 860df65fb87691e02ed71a2d490af5eb77c6851e[m
+Author: dheza1808 <dhezakhairunnisa01@gmail.com>
+Date:   Mon Jul 7 08:25:04 2025 +0700
+
+    update staff 2
+
+[33mcommit b9ce52b1259bcf99bd69696264b1f73be3c696bb[m
+Author: dheza1808 <dhezakhairunnisa01@gmail.com>
+Date:   Mon Jul 7 07:56:53 2025 +0700
+
+    update staff
+
+[33mcommit 9699e69890dafb47b527dedd6d49e9543095c79d[m
+Author: dheza1808 <dhezakhairunnisa01@gmail.com>
+Date:   Sun Jul 6 21:03:22 2025 +0700
+
+    update guest
+
+[33mcommit f7eb8b43bf2e2f6af0ed3c1fe2bde994de3c9275[m
+Author: dheza1808 <dhezakhairunnisa01@gmail.com>
+Date:   Fri Jul 4 20:15:25 2025 +0700
+
+    update ada guest
+
+[33mcommit e3d2ac4383f217045b7f1b8c91e2e425dcdf06de[m
+Author: dheza1808 <dhezakhairunnisa01@gmail.com>
+Date:   Fri Jun 27 23:14:15 2025 +0700
+
+    update tambahan menu
+
+[33mcommit 0f199c321f3eb003d17c08068d73080cf0b9f20f[m
+Author: dheza1808 <dhezakhairunnisa01@gmail.com>
+Date:   Mon Jun 16 23:20:21 2025 +0700
+
+    update sidebar
+
+[33mcommit 5b05131246e37872f88fac130107522fb7c873f8[m
+Author: dheza1808 <dhezakhairunnisa01@gmail.com>
+Date:   Mon Jun 16 10:13:10 2025 +0700
+
+    updatee
+
+[33mcommit c0e402ca83729a4a66596c5b27bcf184e76ab584[m
+Author: dheza1808 <dhezakhairunnisa01@gmail.com>
+Date:   Mon Jun 16 09:36:49 2025 +0700
+
+    update navbar
+
+[33mcommit 1734c2483aa14e799a2d830042b553edc2f1c6ed[m
+Author: dheza1808 <dhezakhairunnisa01@gmail.com>
+Date:   Sat Jun 14 23:26:34 2025 +0700
+
+    update ada footer
+
+[33mcommit 0454f8d1c495b1f2f4ec7ccbceebf66919a6ef56[m
+Author: dheza1808 <dhezakhairunnisa01@gmail.com>
+Date:   Sat Jun 14 21:30:22 2025 +0700
+
+    update
+
+[33mcommit b51caf4507ae1dd830c833c4c4ff778c1da26cf8[m
+Author: dheza1808 <dhezakhairunnisa01@gmail.com>
+Date:   Wed Jun 11 22:21:55 2025 +0700
+
+    gantiTitle
+
+[33mcommit d09999093e1a03d5dfaeef13403e03f976edd8d3[m
+Author: dheza1808 <dhezakhairunnisa01@gmail.com>
+Date:   Wed Jun 11 22:12:41 2025 +0700
+
+    daftarBarang
+
+[33mcommit 4fd88e5f19cb90c865739df0a6c88dcc0862c618[m
+Merge: 25d69dc bc3ef62
+Author: dheza1808 <dhezakhairunnisa01@gmail.com>
+Date:   Wed Jun 11 22:05:12 2025 +0700
+
+    Merge branch 'master' of https://github.com/dheza1808/inventarisBarang
+
+[33mcommit 25d69dcc7aca111026e1bf4abdd69eeba07d31f1[m
+Author: dheza1808 <dhezakhairunnisa01@gmail.com>
+Date:   Wed Jun 11 21:49:22 2025 +0700
+
+    hapus folder
+
+[33mcommit bc3ef62fa505653553b9837266162ea2d5547cc5[m
+Merge: 32ee31a e4be404
+Author: dheza1808 <dhezakhairunnisa01@gmail.com>
+Date:   Wed Jun 11 15:30:05 2025 +0700
+
+    Merge branch 'master' of https://github.com/dheza1808/inventarisBarang
+
+[33mcommit 32ee31abe0a30473e77ce3f282a3afcc637efa0b[m
+Author: dheza1808 <dhezakhairunnisa01@gmail.com>
+Date:   Wed Jun 11 15:29:22 2025 +0700
+
+    staff
+
+[33mcommit 9e7f1df4f3dca57f2451db016afd78765f054d7f[m
+Author: dheza1808 <dhezakhairunnisa01@gmail.com>
+Date:   Wed Jun 11 15:25:05 2025 +0700
+
+    staff
+
+[33mcommit e4be4044c7556e0af4eecd636d196054346a002d[m
+Author: nabillakhairunnisa <khairunnisaa1805@gmail.com>
+Date:   Wed Jun 11 15:05:49 2025 +0700
+
+    TEst
+
+[33mcommit 3a398d6fbfdf31aa20a2b93c98de1620ba4a73c8[m
+Author: dheza1808 <dhezakhairunnisa01@gmail.com>
+Date:   Wed Jun 11 14:48:36 2025 +0700
+
+    first commit

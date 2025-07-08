@@ -23,7 +23,7 @@ export default function FaqList() {
 
   return (
     <div className="space-y-4">
-      <h2 className="text-xl font-bold mb-4">Manajemen FAQ</h2>
+      <h2 className="text-xl font-bold mb-4">Manajemen FAQ tes</h2>
       {faqList.map((faq, index) => (
         <div key={index} className="bg-white shadow rounded p-4">
           <p className="font-medium mb-2">Q: {faq.pertanyaan}</p>
