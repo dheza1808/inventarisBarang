@@ -51,8 +51,29 @@ export default function About() {
       {/* Info Pengembang */}
       <div className="mt-12 max-w-4xl mx-auto text-center text-gray-600">
         <h3 className="text-lg font-semibold mb-2 text-indigo-700">Tim Pengembang</h3>
-        <p>Mahasiswa Sistem Informasi, Universitas XYZ</p>
-        <p className="text-sm mt-2 italic">Versi 1.0 • 2025</p>
+        <div className="flex justify-center gap-12 mb-6">
+    {/* Developer 1 */}
+    <div>
+      <img
+        src="https://i.pinimg.com/736x/9f/db/f4/9fdbf4c61a5e5e91878cb7e59655e4a2.jpg" 
+        alt="Nabilla"
+        className="w-32 h-32 object-cover rounded-full mx-auto shadow-md"
+      />
+      <p className="font-medium mt-2">Nabilla Khairunnisa</p>
+      <p className="text-sm text-gray-500">Frontend</p>
+    </div>
+
+    {/* Developer 2 */}
+    <div>
+      <img
+        src="https://i.pinimg.com/736x/8c/6d/db/8c6ddb5fe6600fcc4b183cb2ee228eb7.jpg" 
+        alt="Dheza"
+        className="w-32 h-32 object-cover rounded-full mx-auto shadow-md"
+      />
+      <p className="font-medium mt-2">Dheza Khairunnisa</p>
+      <p className="text-sm text-gray-500">Backend</p>
+    </div>
+  </div>
       </div>
     </div>
   );

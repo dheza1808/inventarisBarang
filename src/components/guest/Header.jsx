@@ -7,10 +7,10 @@ export default function Header() {
     <header className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-md">
       <div className="container mx-auto flex justify-between items-center px-6 py-4">
         
-        {/* Logo di kiri (pakai gambar) */}
+        
         <Link to="/">
           <img
-            src="/logo.png" // Letakkan logo di folder public
+            src="/logo.png" 
             alt="AssetNest Logo"
             className="h-10 w-auto"
           />

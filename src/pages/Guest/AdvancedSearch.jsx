@@ -44,73 +44,75 @@ export default function AdvancedSearch() {
 
   return (
     <>
-      {/* Filter */}
-      <div className="px-6 w-full">
-        <div className="flex flex-wrap justify-center gap-4 bg-white/10 backdrop-blur-md p-4 rounded-2xl">
-          <input
-            type="text"
-            placeholder="Cari nama barang..."
-            className="px-4 py-2 rounded-md bg-white/20  ext-white placeholder:text-gray-300 w-[200px] focus:outline-none focus:ring-2 focus:ring-white/30"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
+    <div className="px-6 w-full">
+  <div className="flex flex-wrap justify-center gap-4 bg-indigo-400 shadow-md p-4 rounded-2xl">
+    <input
+      type="text"
+      placeholder="Cari nama barang..."
+      className="px-4 py-2 rounded-md bg-white border text-gray-800 placeholder:text-gray-500 w-[200px] focus:outline-none focus:ring-2 focus:ring-blue-300"
+      value={query}
+      onChange={(e) => setQuery(e.target.value)}
+    />
 
-          <select
-            className="px-4 py-2 rounded-md bg- hite/20 text-white focus:outline-none w-[200px]"
-            value={kategori}
-            onChange={(e) => setKategori(e.target.value)}
-          >
-            <option value="">Semua Kategori</option>
-            {kategoriOptions.map((k, i) => (
-              <option key={i} value={k} className="text-black">{k}</option>
-            ))}
-          </select>
+    <select
+      className="px-4 py-2 rounded-md bg-white border text-gray-800 w-[200px] focus:outline-none focus:ring-2 focus:ring-blue-300"
+      value={kategori}
+      onChange={(e) => setKategori(e.target.value)}
+    >
+      <option value="">Semua Kategori</option>
+      {kategoriOptions.map((k, i) => (
+        <option key={i} value={k}>{k}</option>
+      ))}
+    </select>
 
-          <select
-            className="px-4 py-2 round d-md bg-white/20 text-white focus:outline-none w-[200px]"
-            value={lokasi}
-            onChange={(e) => setLokasi(e.target.value)}
-          >
-            <option value="">Semua Lokasi</option>
-            {lokasiOptions.map((l, i) => (
-              <option key={i} value={l} className="text-black">{l}</option>
-            ))}
-          </select>
+    <select
+      className="px-4 py-2 rounded-md bg-white border text-gray-800 w-[200px] focus:outline-none focus:ring-2 focus:ring-blue-300"
+      value={lokasi}
+      onChange={(e) => setLokasi(e.target.value)}
+    >
+      <option value="">Semua Lokasi</option>
+      {lokasiOptions.map((l, i) => (
+        <option key={i} value={l}>{l}</option>
+      ))}
+    </select>
 
-          <select
-            className="px-4 p -2 rounded-md bg-white/20 text-white focus:outline-none w-[200px]"
-            value={kondisi}
-            onChange={(e) => setKondisi(e.target.value)}
-          >
-            <option value="">Semua Kondisi</option>
-            {kondisiOptions.map((k, i) => (
-              <option key={i} value={k} className="text-black">{k}</option>
-            ))}
-          </select>
-        </div>
-      </div>
+    <select
+      className="px-4 py-2 rounded-md bg-white border text-gray-800 w-[200px] focus:outline-none focus:ring-2 focus:ring-blue-300"
+      value={kondisi}
+      onChange={(e) => setKondisi(e.target.value)}
+    >
+      <option value="">Semua Kondisi</option>
+      {kondisiOptions.map((k, i) => (
+        <option key={i} value={k}>{k}</option>
+      ))}
+    </select>
+  </div>
+</div>
+
 
       {/* Cards */}
       <div className="mt-10 flex flex-wrap justify-center gap-6 px-6">
-        {results.map(item => (
-          <Link
-            to={`/detail/${item.id}`}
-            key={item.id}
-            className="b -white/10 w-[200px] rounded-xl p-4 text-white hover:bg-white/20 transition-all shadow-md backdrop-blur cursor-pointer no-underline"
-          >
-            <div className="bg-white rounded-md h-[100px] flex items-center justify-center overflow-hidden mb-3">
-              <img
-                src={item.image}
-                alt={item.nama}
-                className="max-h-full max-w-full object-contain"
-              />
-            </div>
-            <h2 className="font-semibold text-base truncate">{item.nama}</h2>
-            <p className="text-sm text-gray-300">{item.kategori}</p>
-            <p className="text-xs text-gray-400">{item.lokasi} • {item.kondisi}</p>
-          </Link>
-        ))}
+  {results.map(item => (
+    <Link
+      to={`/detail/${item.id}`}
+      key={item.id}
+      className="bg-indigo-200 w-[200px] rounded-xl p-4 text-gray-800 hover:bg-purple-400 transition-all shadow-md cursor-pointer no-underline"
+    >
+      <div className="bg-white rounded-md h-[100px] flex items-center justify-center overflow-hidden mb-3">
+        <img
+          src={item.image}
+          alt={item.nama}
+          className="max-h-full max-w-full object-contain"
+        />
       </div>
+      <h2 className="font-semibold text-base truncate text-gray-900">
+        {item.nama}
+      </h2>
+      <p className="text-sm text-gray-600">{item.kategori}</p>
+      <p className="text-xs text-gray-500">{item.lokasi} • {item.kondisi}</p>
+    </Link>
+  ))}
+</div>
 
       {/* No Result */}
       {results.length === 0 && (

@@ -68,7 +68,7 @@ export default function Dashboard() {
   return (
     <div className="max-w-7xl mx-auto px-6 py-10 space-y-10">
       <h1 className="text-4xl font-bold text-indigo-800 text-center mb-8">
-        Dashboard Gudang
+        Dashboard Inventaris
       </h1>
 
       {/* Statistik Ringkas */}

@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function HeroSection() {
   return (
-    <section className="bg-gradient-to-r from-indigo-700 to-purple-700 text-white py-20 px-6 rounded-b-[80px]">
+    <section className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-20 px-4 w-full max-w-screen-xl mx-auto rounded-[80px]">
       <div className="max-w-6xl mx-auto flex flex-row items-center justify-between gap-12">
 
         {/* KIRI - TEKS */}
