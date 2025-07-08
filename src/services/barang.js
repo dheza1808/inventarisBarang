@@ -50,4 +50,19 @@ export const barangAPI = {
     const response = await axios.delete(`${API_URL}?id=eq.${id}`, { headers })
     return response.data
   },
+
+  // ✅ Get Count Semua Barang
+  async getCountBarang() {
+    const response = await axios.get(API_URL, {
+      headers: {
+        ...headers,
+        Prefer: 'count=exact',
+      },
+      params: {
+        select: 'id',
+      },
+    })
+    const count = response.headers['content-range']?.split('/')[1]
+    return parseInt(count, 10) || 0
+  },
 }

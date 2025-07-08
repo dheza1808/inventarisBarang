@@ -1,17 +1,12 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useState } from "react";
 import {
   FaHome,
   FaBoxes,
   FaArrowCircleDown,
-  FaFileAlt,
-  FaUserCog,
-  FaUsers,
-  FaTruck,
-  FaBell,
+  FaClipboardCheck,
   FaClipboardList,
   FaSignOutAlt,
-  FaClipboardCheck, // <- Tambahan ikon untuk peminjaman
 } from "react-icons/fa";
 
 export default function Sidebar() {
@@ -22,10 +17,11 @@ export default function Sidebar() {
 
   return (
     <aside className="w-64 h-screen overflow-y-auto bg-gradient-to-b from-purple-800 to-indigo-700 text-white shadow-md">
-      {/* Header */}
+      {/* Header Logo */}
       <div className="mb-6 flex items-center gap-3 text-sm font-semibold tracking-wide px-4 pt-6">
-        <img src="/inventory.png" alt="Logo" className="w-10 h-10" />
-        <span className="leading-tight">PT Maju Bersama</span>
+        <Link to="/" className="flex items-center gap-3">
+          <img src="/logo.png" alt="AssetNest Logo" className="h-10 w-auto" />
+        </Link>
       </div>
 
       {/* Navigation */}
@@ -102,7 +98,6 @@ export default function Sidebar() {
         >
           <FaClipboardList /> Riwayat Transaksi
         </NavLink>
-
 
         <NavLink
           to="/logout"

@@ -10,20 +10,53 @@ import {
 } from "chart.js";
 import artikelPopuler from "../../data/artikelPopuler.json";
 import statistikPengguna from "../../data/statistikPengguna.json";
+import { barangAPI } from "../../services/barang";
+import { peminjamanAPI } from "../../services/peminjaman";
 
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement);
 
 export default function Dashboard() {
-  const [barangMasuk, setBarangMasuk] = useState([]);
-  const [peminjaman, setPeminjaman] = useState([]);
+  const [countBarangMasuk, setCountBarangMasuk] = useState(0);
+  const [countPeminjamanDisetujui, setCountPeminjamanDisetujui] = useState(0);
+  const [countPeminjaman, setCountPeminjaman] = useState(0);
   const [riwayat, setRiwayat] = useState([]);
 
   useEffect(() => {
+    const fetchCountBarangMasuk = async () => {
+      try {
+        const response = await barangAPI.getCountBarang();
+        console.log("Count Barang Masuk:", response);
+        
+        setCountBarangMasuk(response);
+      } catch (error) {
+        console.error("Error fetching count barang masuk:", error);
+      }
+    };
+
+    const fetchCountPeminjamanDisetujui = async () => {
+      try {
+        const response = await peminjamanAPI.getCountDisetujui();
+        setCountPeminjamanDisetujui(response);
+      } catch (error) {
+        console.error("Error fetching count peminjaman disetujui:", error);
+      }
+    };
+
+    const fetchCountPeminjaman = async () => {
+      try {
+        const response = await peminjamanAPI.getCountPeminjaman();
+        setCountPeminjaman(response);
+      } catch (error) {
+        console.error("Error fetching count peminjaman:", error);
+      }
+    };
+
+    fetchCountBarangMasuk();
+    fetchCountPeminjamanDisetujui();
+    fetchCountPeminjaman();
+
     const masuk = JSON.parse(localStorage.getItem("barang_masuk")) || [];
     const pinjam = JSON.parse(localStorage.getItem("peminjaman_guest")) || [];
-
-    setBarangMasuk(masuk);
-    setPeminjaman(pinjam);
 
     const combined = [
       ...masuk.map((item) => ({ ...item, tipe: "Masuk" })),
@@ -76,21 +109,21 @@ export default function Dashboard() {
         <StatCard
           icon={<FaArrowDown className="text-green-600 text-3xl" />}
           label="Total Barang Masuk"
-          value={barangMasuk.length}
+          value={countBarangMasuk}
           bgColor="bg-green-100"
           textColor="text-green-800"
         />
         <StatCard
           icon={<FaUserCheck className="text-purple-600 text-3xl" />}
           label="Total Peminjaman"
-          value={peminjaman.length}
+          value={countPeminjamanDisetujui}
           bgColor="bg-purple-100"
           textColor="text-purple-800"
         />
         <StatCard
           icon={<FaHistory className="text-blue-600 text-3xl" />}
           label="Total Riwayat Transaksi"
-          value={riwayat.length}
+          value={countBarangMasuk + countPeminjaman}
           bgColor="bg-blue-100"
           textColor="text-blue-800"
         />

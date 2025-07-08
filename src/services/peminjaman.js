@@ -45,4 +45,36 @@ export const peminjamanAPI = {
     })
     return response.data
   },
+
+  // ✅ Count peminjaman dengan status "Disetujui"
+  async getCountDisetujui() {
+    const response = await axios.get(API_URL, {
+      headers: {
+        ...headers,
+        Prefer: 'count=exact',
+      },
+      params: {
+        status: 'eq.disetujui',
+        select: 'id',
+      },
+    })
+    const count = response.headers['content-range']?.split('/')[1]
+    return parseInt(count, 10) || 0
+  },
+
+  // ✅ Count peminjaman dengan status "Disetujui" atau "Ditolak"
+  async getCountPeminjaman() {
+    const response = await axios.get(API_URL, {
+      headers: {
+        ...headers,
+        Prefer: 'count=exact',
+      },
+      params: {
+        or: '(status.eq.disetujui,status.eq.ditolak)',
+        select: 'id',
+      },
+    })
+    const count = response.headers['content-range']?.split('/')[1]
+    return parseInt(count, 10) || 0
+  },
 }
