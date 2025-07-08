@@ -22,13 +22,13 @@ export default function FaqList() {
   };
 
   return (
-    <div className="space-y-4">
-      <h2 className="text-xl font-bold mb-4">Manajemen FAQ tes</h2>
+    <div className="space-y-4 text-gray-800">
+      <h2 className="text-xl font-bold mb-4 text-gray-900">Manajemen FAQ</h2>
       {faqList.map((faq, index) => (
         <div key={index} className="bg-white shadow rounded p-4">
-          <p className="font-medium mb-2">Q: {faq.pertanyaan}</p>
+          <p className="font-medium mb-2 text-gray-800">Q: {faq.pertanyaan}</p>
           <textarea
-            className="w-full border rounded p-2"
+            className="w-full border rounded p-2 text-gray-800"
             rows={2}
             value={faq.jawaban}
             onChange={(e) => handleChange(index, e.target.value)}
@@ -37,7 +37,7 @@ export default function FaqList() {
       ))}
       <button
         onClick={handleSave}
-        className="bg-blue-600 text-white px-4 py-2 rounded"
+        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
       >
         Simpan Semua Jawaban
       </button>
