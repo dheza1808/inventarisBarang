@@ -30,8 +30,6 @@ const BarangMasuk = lazy(() => import("./pages/StaffGudang/BarangMasuk"));
 const PersetujuanPeminjaman = lazy(() => import("./pages/StaffGudang/PersetujuanPeminjaman"));
 const RiwayatTransaksi = lazy(() => import("./pages/StaffGudang/RiwayatTransaksi"));
 const Aset = lazy(() => import("./pages/StaffGudang/Aset"));
-const Customer = lazy(() => import("./pages/StaffGudang/Customer"));
-const Pengguna = lazy(() => import("./pages/StaffGudang/Pengguna"));
 const FaqPageStaff = lazy(() => import("./pages/StaffGudang/FaqPage"));
 
 
@@ -42,7 +40,6 @@ const ForgotPassword = lazy(() => import("./pages/auth/ForgotPassword"));
 const Profile = lazy(() => import("./pages/auth/Profile"));
 const EditProfile = lazy(() => import("./pages/auth/EditProfile"));
 const Logout = lazy(() => import("./pages/auth/Logout"));
-const Notifikasi = lazy(() => import("./pages/auth/Notifikasi"));
 const Settings = lazy(() => import("./pages/auth/Settings"));
 
 
@@ -81,8 +78,6 @@ function AppRoutes() {
         <Route path="peminjaman" element={<PersetujuanPeminjaman />} />
         <Route path="riwayat" element={<RiwayatTransaksi />} />
         <Route path="aset" element={<Aset />} />
-        <Route path="customer" element={<Customer />} />
-        <Route path="pengguna" element={<Pengguna />} />
         <Route path="faq" element={<FaqPageStaff />} />
       </Route>
 
@@ -93,7 +88,6 @@ function AppRoutes() {
       <Route path="/profile" element={<Profile />} />
       <Route path="/editprofile" element={<EditProfile />} />
       <Route path="/logout" element={<Logout />} />
-      <Route path="/notifikasi" element={<Notifikasi />} />
       <Route path="/settings" element={<Settings />} />
 
       {/* ========== 404 ROUTE ========== */}
